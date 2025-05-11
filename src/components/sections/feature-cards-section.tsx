@@ -1,43 +1,43 @@
 'use client';
 import FeatureCard from '@/components/cards/feature-card';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import { Zap, BrainCircuit, MessageSquare, Users, ShieldCheck, Settings } from 'lucide-react';
+import { Zap, BrainCircuit, MessageSquare, Users, ShieldCheck, Settings, BarChartHorizontalBig } from 'lucide-react';
 
 const features = [
   {
-    icon: Zap,
-    title: 'Anında Yanıtlar',
-    description: 'Müşteri sorularına ve taleplerine 7/24 anında yanıt vererek bekleme sürelerini ortadan kaldırın.',
+    icon: BarChartHorizontalBig,
+    title: 'Kapsamlı Proje Takibi',
+    description: 'Projelerinizin her aşamasını detaylı bir şekilde takip edin, görevleri yönetin ve ilerlemeyi görün.',
     iconColorClass: 'text-primary',
   },
   {
     icon: BrainCircuit,
-    title: 'Akıllı Öğrenme',
-    description: 'Yapay zeka asistanlarımız, etkileşimlerden öğrenerek zamanla daha doğru ve etkili hale gelir.',
-    iconColorClass: 'text-primary',
-  },
-  {
-    icon: MessageSquare,
-    title: 'Çok Kanallı Destek',
-    description: 'Web siteniz, mobil uygulamanız ve sosyal medya platformlarınız üzerinden kesintisiz destek sunun.',
+    title: 'Akıllı Raporlama',
+    description: 'Veriye dayalı kararlar almak için kapsamlı raporlar ve analizlerle projelerinizin performansını ölçün.',
     iconColorClass: 'text-primary',
   },
   {
     icon: Users,
-    title: 'Kişiselleştirilmiş Deneyim',
-    description: 'Her kullanıcıya özel, kişiselleştirilmiş etkileşimler ve çözümler sunarak bağlılığı artırın.',
+    title: 'Ekip İşbirliği',
+    description: 'Ekip üyeleriyle kolayca iletişim kurun, dosyaları paylaşın ve projelerde birlikte çalışın.',
     iconColorClass: 'text-primary',
   },
   {
     icon: Settings,
-    title: 'Kolay Entegrasyon',
-    description: 'Mevcut CRM, ERP ve diğer iş araçlarınızla sorunsuz bir şekilde entegre edin.',
+    title: 'Özelleştirilebilir Akışlar',
+    description: 'İş akışlarınızı kendi ihtiyaçlarınıza göre özelleştirin ve proje süreçlerinizi optimize edin.',
+    iconColorClass: 'text-primary',
+  },
+  {
+    icon: Zap,
+    title: 'Hızlı Entegrasyon',
+    description: 'Mevcut araçlarınızla (takvim, depolama vb.) kolayca entegre olarak kesintisiz bir çalışma deneyimi yaşayın.',
     iconColorClass: 'text-primary',
   },
   {
     icon: ShieldCheck,
     title: 'Güvenli Veri Yönetimi',
-    description: 'Müşteri verilerini en yüksek güvenlik standartlarıyla koruyun ve gizliliğe önem verin.',
+    description: 'Proje verilerinizi en yüksek güvenlik standartlarıyla koruyun ve gizliliğe önem verin.',
     iconColorClass: 'text-primary',
   },
 ];
@@ -48,9 +48,9 @@ export default function FeatureCardsSection() {
       <div className="container mx-auto">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
           <p className="section-title-sm text-primary">TEMEL ÖZELLİKLER</p>
-          <h2 className="section-title">AssistoWeb'in Gücünü Keşfedin</h2>
+          <h2 className="section-title">Softo'nun Gücünü Keşfedin</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            İşletmenizi geleceğe taşıyacak yenilikçi özelliklerle tanışın.
+            Projelerinizi başarıya ulaştıracak yenilikçi özelliklerle tanışın.
           </p>
         </ScrollAnimationWrapper>
 

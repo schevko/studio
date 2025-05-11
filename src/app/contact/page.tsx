@@ -4,12 +4,12 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <div className="section-padding bg-gradient-to-b from-card to-background">
+    <div className="section-padding bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimationWrapper className="text-center mb-12">
           <h1 className="section-title">Bize Ulaşın</h1>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Yardımcı olmak için buradayız. Demolar, özel fiyat teklifleri veya AssistoWeb hakkında merak ettiğiniz her türlü soru için bize ulaşın.
+            Yardımcı olmak için buradayız. Demolar, özel fiyat teklifleri veya Softo hakkında merak ettiğiniz her türlü soru için bize ulaşın.
           </p>
         </ScrollAnimationWrapper>
 
@@ -22,9 +22,9 @@ export default function ContactPage() {
                   <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground">E-posta Gönderin</h3>
-                    <a href="mailto:satis@assistoweb.com" className="hover:text-primary transition-colors">satis@assistoweb.com</a>
+                    <a href="mailto:satis@softo.com" className="hover:text-primary transition-colors">satis@softo.com</a>
                     <p className="text-sm">Satış ve özel fiyat teklifleri için.</p>
-                     <a href="mailto:destek@assistoweb.com" className="hover:text-primary transition-colors">destek@assistoweb.com</a>
+                     <a href="mailto:destek@softo.com" className="hover:text-primary transition-colors">destek@softo.com</a>
                     <p className="text-sm">Teknik destek için.</p>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ export default function ContactPage() {
                   <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground">Ofisimiz</h3>
-                    <p>AssistoWeb Teknoloji A.Ş., Teknopark İstanbul, Pendik, İstanbul</p>
+                    <p>Softo Teknoloji A.Ş., Teknopark İstanbul, Pendik, İstanbul</p>
                     <p className="text-sm">(Ziyaretler randevu ile yapılmaktadır)</p>
                   </div>
                 </div>

@@ -10,10 +10,10 @@ export default function ContactTeaserSection() {
       <div className="container mx-auto max-w-4xl text-center">
         <ScrollAnimationWrapper>
           <h2 className="text-3xl font-bold mb-4 sm:text-4xl">
-            AssistoWeb ile Tanışmaya Hazır mısınız?
+            Softo ile Tanışmaya Hazır mısınız?
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto text-primary-foreground/90">
-            Yapay zeka destekli sanal asistan çözümlerimizin işletmenize nasıl değer katabileceğini öğrenmek için bizimle iletişime geçin.
+            Proje yönetimi çözümlerimizin işletmenize nasıl değer katabileceğini öğrenmek için bizimle iletişime geçin.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 font-semibold shadow-lg transform hover:scale-105">

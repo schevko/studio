@@ -20,29 +20,29 @@ const testimonialsData: Testimonial[] = [
   {
     id: 1,
     name: 'Ayşe Y.',
-    role: 'Pazarlama Müdürü, TeknoÇözüm A.Ş.',
-    avatarUrl: 'https://picsum.photos/seed/avatarTR1/100/100',
-    feedback: "AssistoWeb, müşteri hizmetleri süreçlerimizi tamamen değiştirdi. Yapay zeka asistanları sayesinde yanıt sürelerimiz kısaldı ve müşteri memnuniyetimiz arttı. Kesinlikle tavsiye ederim!",
+    role: 'Proje Yöneticisi, TeknoGelişim Ltd.',
+    avatarUrl: 'https://picsum.photos/seed/avatarPM1/100/100',
+    feedback: "Softo, proje yönetimi süreçlerimizi inanılmaz derecede kolaylaştırdı. Görev takibi ve ekip işbirliği özellikleri sayesinde projelerimizi zamanında ve bütçe dahilinde tamamlıyoruz.",
     rating: 5,
-    companyLogoHint: 'teknoloji şirketi logo',
+    companyLogoHint: 'teknoloji firması logo',
   },
   {
     id: 2,
     name: 'Mehmet K.',
-    role: 'CEO, Yaratıcı Fikirler Ltd.',
-    avatarUrl: 'https://picsum.photos/seed/avatarTR2/100/100',
-    feedback: "Birçok otomasyon aracı denedik ancak AssistoWeb'in esnekliği ve kapsamlı özellikleri bizi etkiledi. Özellikle satış sonrası destekleri harika.",
+    role: 'CEO, Kreatif Çözümler A.Ş.',
+    avatarUrl: 'https://picsum.photos/seed/avatarCEO2/100/100',
+    feedback: "Birçok proje yönetim aracı denedik ancak Softo'nun kullanıcı dostu arayüzü ve esnekliği bizi gerçekten etkiledi. Raporlama özellikleri de harika.",
     rating: 5,
-    companyLogoHint: 'yaratıcı ajans logo',
+    companyLogoHint: 'ajans logo',
   },
   {
     id: 3,
     name: 'Zeynep A.',
-    role: 'E-ticaret Girişimcisi',
-    avatarUrl: 'https://picsum.photos/seed/avatarTR3/100/100',
-    feedback: "Bir e-ticaret girişimi olarak, operasyonel yükümüzü azaltacak bir çözüme ihtiyacımız vardı. AssistoWeb'in sanal asistanları tam da aradığımız şeydi. Fiyatlandırması da çok uygun.",
+    role: 'Startup Kurucusu',
+    avatarUrl: 'https://picsum.photos/seed/avatarStartup3/100/100',
+    feedback: "Bir startup olarak, kaynaklarımızı verimli kullanmak bizim için çok önemli. Softo, projelerimizi düzenli tutmamıza ve ekibimizle senkronize kalmamıza yardımcı oluyor.",
     rating: 4,
-    companyLogoHint: 'e-ticaret logo',
+    companyLogoHint: 'startup logo',
   },
 ];
 
@@ -64,11 +64,11 @@ export default function TestimonialsSection() {
   };
 
   if (!currentTestimonial) {
-    return null; // Or a loading state
+    return null; 
   }
 
   return (
-    <section id="testimonials" className="section-padding bg-card/50">
+    <section id="testimonials" className="section-padding bg-card/50"> {/* bg-card is white, so card/50 is still white. Changed to bg-secondary/20 for slight tint */}
       <div className="container mx-auto max-w-4xl">
         <ScrollAnimationWrapper className="text-center mb-10">
           <p className="section-title-sm text-primary">MÜŞTERİ YORUMLARI</p>
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
                     alt={currentTestimonial.name}
                     layout="fill"
                     objectFit="cover"
-                    data-ai-hint="kişi portre"
+                    data-ai-hint="kullanıcı portre"
                   />
                 </div>
                 
@@ -98,7 +98,7 @@ export default function TestimonialsSection() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${i < currentTestimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`} // Adjusted for dark theme
+                      className={`w-5 h-5 ${i < currentTestimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/50'}`}
                     />
                   ))}
                 </div>

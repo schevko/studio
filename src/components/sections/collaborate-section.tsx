@@ -8,9 +8,9 @@ import { MessageSquare, Users, Share2, Bot } from 'lucide-react';
 export default function CollaborateSection() {
   const collaborationFeatures = [
     {
-      icon: Bot, // Changed to Bot icon
+      icon: Bot, 
       title: 'AI Destekli İşbirliği',
-      description: 'Sanal asistanlarınızla görevleri tartışın, geri bildirim paylaşın ve kararları hızla alın.',
+      description: 'Proje asistanlarınızla görevleri tartışın, geri bildirim paylaşın ve kararları hızla alın.',
     },
     {
       icon: Users,
@@ -32,7 +32,7 @@ export default function CollaborateSection() {
             <p className="section-title-sm text-primary">EKİP İŞBİRLİĞİ</p>
             <h2 className="section-title mb-6">Ekibinizle Çalışın ve İşbirliği Yapın</h2>
             <p className="section-subtitle mb-8">
-              AssistoWeb, ekip çalışmasını kusursuz hale getirir. Ekibinizi bir araya getirin, iletişimi kolaylaştırın ve güçlü işbirliği araçlarımızla üretkenliği artırın.
+              Softo, ekip çalışmasını kusursuz hale getirir. Ekibinizi bir araya getirin, iletişimi kolaylaştırın ve güçlü işbirliği araçlarımızla üretkenliği artırın.
             </p>
             <div className="space-y-6 mb-8">
               {collaborationFeatures.map((item, index) => (
@@ -47,18 +47,18 @@ export default function CollaborateSection() {
                 </div>
               ))}
             </div>
-            <Button asChild size="lg" className="btn-primary-assist">
+            <Button asChild size="lg" className="btn-primary-softo">
               <Link href="/kayit">Ücretsiz Deneyin</Link>
             </Button>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <div className="relative aspect-[4/3] w-full max-w-xl mx-auto lg:max-w-none lg:mx-0 rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/aiteamwork/800/600"
+                src="https://picsum.photos/seed/teamwork/800/600"
                 alt="Ekip işbirliği arayüzü"
                 layout="fill"
                 objectFit="cover"
-                data-ai-hint="ai team collaboration"
+                data-ai-hint="team collaboration"
                 className="transform transition-transform duration-500 hover:scale-105"
               />
             </div>

@@ -136,7 +136,7 @@ export default function ContactForm() {
                   <FormLabel className="text-foreground/80">Talep Türü</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg">
+                      <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg data-[placeholder]:text-muted-foreground">
                         <SelectValue placeholder="Bir talep türü seçin" />
                       </SelectTrigger>
                     </FormControl>
@@ -169,7 +169,7 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full btn-primary-assist" disabled={isPending}>
+            <Button type="submit" className="w-full btn-primary-softo" disabled={isPending}>
               {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
               Mesajı Gönder
             </Button>

@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Youtube, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
-// Inline SVG for AssistoWeb logo (simple placeholder, replace with actual logo if available)
-const AssistoWebLogoFooter = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="hsl(var(--primary))" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 5C25.16 5 5 25.16 5 50s20.16 45 45 45 45-20.16 45-45S74.84 5 50 5zm0 82.81c-20.87 0-37.81-16.94-37.81-37.81S29.13 12.19 50 12.19s37.81 16.94 37.81 37.81-16.94 37.81-37.81 37.81z"/>
-    <path d="M50 26.56c-2.76 0-5 2.24-5 5v17.5h-17.5c-2.76 0-5 2.24-5 5s2.24 5 5 5h17.5v17.5c0 2.76 2.24 5 5 5s5-2.24 5-5v-17.5h17.5c2.76 0 5-2.24 5-5s-2.24-5-5-5h-17.5v-17.5c0-2.76-2.24-5-5-5z" fill="hsl(var(--card-foreground))"/> {/* Adjusted fill for dark theme */}
-     <circle cx="50" cy="50" r="10" fill="hsl(var(--primary))"/>
+// Inline SVG for Softo logo
+const SoftoLogoFooter = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 17L12 22L22 17" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 12L12 17L22 12" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -31,19 +31,16 @@ export default function Footer() {
       { label: 'Hakkımızda', href: '/hakkimizda' },
       { label: 'Kariyer', href: '/kariyer' },
       { label: 'Blog', href: '/blog' },
-      // { label: 'Basın', href: '/basin' }, // Uncomment if needed
     ],
     urun: [
       { label: 'Özellikler', href: '/#features' },
       { label: 'Fiyatlandırma', href: '/#pricing' },
       { label: 'Entegrasyonlar', href: '/entegrasyonlar' },
-      // { label: 'Şablonlar', href: '/sablonlar' }, // Uncomment if needed
     ],
     destek: [
       { label: 'Yardım Merkezi', href: '/yardim' },
       { label: 'Bize Ulaşın', href: '/contact' },
       { label: 'API Dokümanları', href: '/developer' },
-      // { label: 'Sistem Durumu', href: '/status' }, // Uncomment if needed
     ],
     yasal: [
       { label: 'Hizmet Şartları', href: '/hizmet-sartlari' },
@@ -61,17 +58,17 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border/70 bg-card text-muted-foreground">
+    <footer className="border-t border-border/70 bg-card text-muted-foreground mt-auto">
       <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo & Description */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2 pr-8">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-foreground mb-3">
-              <AssistoWebLogoFooter />
-              <span>AssistoWeb</span>
+              <SoftoLogoFooter />
+              <span>Softo</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
-              İşletmeniz için en iyi yapay zeka sanal asistan çözümleri. Verimliliği artırın, maliyetleri düşürün.
+              Proje yönetimi süreçlerinizi optimize edin ve verimliliği artırın.
             </p>
             <div className="mt-6 flex space-x-2">
               <Button variant="outline" className="flex items-center gap-2 text-sm h-auto py-2 px-3 border-input-border hover:border-primary text-foreground hover:text-primary">
@@ -128,7 +125,7 @@ export default function Footer() {
 
         <div className="border-t border-border/70 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm">
-            &copy; {currentYear} AssistoWeb. Tüm hakları saklıdır.
+            &copy; {currentYear} Softo. Tüm hakları saklıdır.
           </p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             {socialLinks.map(social => (

@@ -19,8 +19,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'AssistoWeb - Yapay Zeka Sanal Asistan Çözümleri',
-  description: 'AssistoWeb ile iş süreçlerinizi optimize edin, verimliliği artırın ve müşteri memnuniyetini en üst düzeye çıkarın. Yapay zeka destekli sanal asistanlarımızla tanışın.',
+  title: 'Softo - Proje Yönetimi Yazılım Çözümleri',
+  description: 'Softo ile proje yönetimi süreçlerinizi optimize edin, verimliliği artırın ve hedeflerinize ulaşın. Modern proje yönetimi çözümleriyle tanışın.',
 };
 
 export default function RootLayout({

@@ -12,35 +12,35 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer base {
   :root {
-    /* AssistoWeb Theme Colors */
-    --background: 222 68% 11%; /* #0A192F Dark Navy Blue */
-    --foreground: 225 24% 80%; /* Lighter shade of #8892B0 for text on dark background */
+    /* Softo Theme Colors - Light Theme */
+    --background: 255 100% 100%; /* #FFFFFF White */
+    --foreground: 240 10% 3.9%; /* #0A0A0A Dark Gray / Almost Black */
 
-    --card: 222 65% 15%; /* Slightly lighter than background, e.g., #0F2340 */
-    --card-foreground: 225 24% 80%; /* Text on card */
+    --card: 255 100% 100%; /* #FFFFFF White */
+    --card-foreground: 240 10% 3.9%; /* #0A0A0A Dark Gray / Almost Black */
 
-    --popover: 222 65% 18%; /* Popover background */
-    --popover-foreground: 225 24% 85%; /* Text on popover */
+    --popover: 255 100% 100%; /* #FFFFFF White */
+    --popover-foreground: 240 10% 3.9%; /* #0A0A0A Dark Gray / Almost Black */
 
-    --primary: 165 100% 70%; /* #64FFDA Neon Green - for CTAs and highlights */
-    --primary-foreground: 222 68% 11%; /* Dark Navy Blue - for text on neon green buttons */
+    --primary: 258 90% 66%; /* #7C3AED Purple */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF White for text on purple buttons */
 
-    --secondary: 225 24% 30%; /* Darker shade of #8892B0, for secondary elements */
-    --secondary-foreground: 225 24% 85%; /* Text for on secondary */
+    --secondary: 240 4.8% 95.9%; /* #F4F4F5 Light Gray */
+    --secondary-foreground: 240 10% 3.9%; /* #0A0A0A Dark Gray / Almost Black */
 
-    --muted: 225 24% 25%; /* For less prominent elements, borders */
-    --muted-foreground: 225 24% 61%; /* #8892B0 Sophisticated Gray for placeholder text, subtitles */
+    --muted: 240 4.8% 90%; /* #E4E4E7 Medium Light Gray */
+    --muted-foreground: 240 3.8% 46.1%; /* #71717A Gray */
 
-    --accent: 165 100% 70%; /* #64FFDA Neon Green - consistent with primary for highlights */
-    --accent-foreground: 222 68% 11%; /* Dark Navy Blue for text on neon green */
+    --accent: 258 90% 66%; /* #7C3AED Purple - consistent with primary for highlights */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF White for text on purple */
 
     --destructive: 0 70% 55%; /* Red for destructive actions */
     --destructive-foreground: 0 0% 100%; /* White text on red */
 
-    --border: 225 24% 20%; /* Dark gray for borders */
-    --input: 225 24% 18%; /* Input background - dark */
-    --input-border: 225 24% 30%; /* Input border color - slightly lighter dark gray */
-    --ring: 165 100% 70%; /* Neon Green for focus rings */
+    --border: 240 5.9% 90%; /* #E4E4E7 Light Gray for borders */
+    --input: 240 5.9% 93%; /* #EDEDED Input background - very light gray */
+    --input-border: 240 5.9% 88%; /* #DCDCDC Input border color */
+    --ring: 258 90% 66%; /* Purple for focus rings */
 
     --radius: 0.75rem; /* Slightly more rounded corners for modern feel */
 
@@ -51,15 +51,9 @@ h1, h2, h3, h4, h5, h6 {
     --chart-4: 38 95% 58%;  /* Yellow */
     --chart-5: 280 90% 65%; /* Purple */
 
-    /* Specific app colors (can be derived or explicit) */
-    /* These might not be needed if the base theme is used consistently */
-    --app-dark-navy: 222 68% 11%;
-    --app-gray: 225 24% 61%;
-    --app-neon-green: 165 100% 70%;
-
     /* Font variables */
     --font-inter: "Inter", sans-serif;
-    --font-manrope: "Manrope", sans-serif; /* For headings, as per original setup. Proposal: Cal Sans (Manrope fallback) */
+    --font-manrope: "Manrope", sans-serif;
   }
 }
 
@@ -69,6 +63,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
+    /* Background gradient similar to the image */
+    background-image: linear-gradient(135deg, hsl(300 100% 98%) 0%, hsl(180 100% 98%) 100%);
     overflow-x: hidden; /* Prevent horizontal scroll */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -137,36 +133,26 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(var(--primary));
 }
 
-/* Global Button Styles for AssistoWeb Theme */
-.btn-primary-assist {
+/* Global Button Styles based on new theme */
+.btn-primary-softo {
   @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-3 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out;
-  /* Neon green button */
+  /* Purple button */
 }
 
-.btn-secondary-assist {
+.btn-secondary-softo {
   @apply bg-transparent text-primary border border-primary hover:bg-primary/10 rounded-lg px-6 py-3 text-base font-semibold shadow-sm hover:shadow-md transition-all duration-300 ease-in-out;
-  /* Outline neon green button */
+  /* Outline purple button */
 }
 
-.btn-ghost-assist {
+.btn-ghost-softo {
    @apply text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg px-6 py-3 text-base font-semibold transition-all duration-300 ease-in-out;
 }
 
 
 /* Ensure Geist font variables are defaulted if not used, or remove */
 :root {
-  --font-geist-sans: ""; 
+  --font-geist-sans: "";
   --font-geist-mono: "";
 }
 
-/* Animated gradient for Hero */
-.animated-gradient-hero {
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* Removed animated-gradient-hero as it's not part of the new design */

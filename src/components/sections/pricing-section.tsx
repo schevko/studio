@@ -5,31 +5,31 @@ import Link from 'next/link';
 
 const pricingPlans = [
   {
-    planName: 'Temel Asistan',
+    planName: 'Temel Plan',
     price: '₺199',
     priceDescription: '/ay',
     planSubtitle: 'Yıllık faturalandırılır',
     features: [
-      '1 Sanal Asistan',
-      'Temel görev otomasyonu',
+      '1 Proje',
+      'Temel görev yönetimi',
       'Sınırlı entegrasyonlar',
       'E-posta desteği',
-      'Aylık 1000 etkileşim',
+      'Aylık 1000 görev',
     ],
     ctaText: 'Başla',
     ctaLink: '/kayit?plan=temel',
   },
   {
-    planName: 'Profesyonel Asistan',
+    planName: 'Profesyonel Plan',
     price: '₺499',
     priceDescription: '/ay',
     planSubtitle: 'Yıllık faturalandırılır',
     features: [
-      '3 Sanal Asistan',
-      'Gelişmiş görev otomasyonu',
+      'Sınırsız Proje',
+      'Gelişmiş görev yönetimi',
       'Popüler platform entegrasyonları',
       'Öncelikli e-posta ve telefon desteği',
-      'Aylık 5000 etkileşim',
+      'Aylık 5000 görev',
       'Detaylı raporlama',
     ],
     ctaText: 'Profesyonel Seç',
@@ -42,12 +42,12 @@ const pricingPlans = [
     priceDescription: '',
     planSubtitle: 'Fiyat için iletişime geçin',
     features: [
-      'Sınırsız Sanal Asistan',
+      'Sınırsız Proje ve Kullanıcı',
       'Özelleştirilmiş iş akışları',
       'Özel API entegrasyonları',
       'Atanmış müşteri temsilcisi',
       'SSO ve Gelişmiş güvenlik',
-      'Sınırsız etkileşim',
+      'Sınırsız görev',
     ],
     ctaText: 'Satışla İletişime Geç',
     ctaLink: '/contact?source=enterprise_pricing',
@@ -56,13 +56,13 @@ const pricingPlans = [
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="section-padding bg-gradient-to-b from-background to-card/30">
+    <section id="pricing" className="section-padding bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
           <p className="section-title-sm text-primary">FİYATLANDIRMA PLANLARI</p>
           <h2 className="section-title">Esnek Fiyatlandırma Planları</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            İhtiyaçlarınıza ve bütçenize uygun bir plan seçin. Tüm planlarımız, yapay zeka asistanlarınızı yönetmenize yardımcı olacak güçlü özelliklerle birlikte gelir.
+            İhtiyaçlarınıza ve bütçenize uygun bir plan seçin. Tüm planlarımız, projelerinizi yönetmenize yardımcı olacak güçlü özelliklerle birlikte gelir.
           </p>
         </ScrollAnimationWrapper>
 
@@ -77,7 +77,7 @@ export default function PricingSection() {
           <p className="text-lg text-muted-foreground mb-4">
             Daha fazlasına mı ihtiyacınız var? Özel gereksinimlerinize göre uyarlanmış bir plan edinin.
           </p>
-          <Button asChild size="lg" className="btn-primary-assist">
+          <Button asChild size="lg" className="btn-primary-softo">
             <Link href="/contact?source=custom_plan">Bize Ulaşın</Link>
           </Button>
         </ScrollAnimationWrapper>

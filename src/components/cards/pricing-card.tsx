@@ -60,7 +60,7 @@ export default function PricingCard({
           size="lg" 
           className={cn(
             "w-full text-base font-semibold rounded-lg py-3",
-            isPopular ? "btn-primary-assist" : "btn-secondary-assist"
+            isPopular ? "btn-primary-softo" : "btn-secondary-softo" // Updated button variant
           )}
         >
           <Link href={ctaLink}>{ctaText}</Link>

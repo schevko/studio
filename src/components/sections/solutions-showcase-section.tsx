@@ -1,47 +1,47 @@
 'use client';
 import SolutionCard from '@/components/cards/solution-card';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import { MessageCircle, ShoppingCart, Settings, Zap } from 'lucide-react'; // Example icons
+import { Briefcase, Users, Lightbulb, ShieldCheck } from 'lucide-react'; // Project management related icons
 
 const solutions = [
   {
-    icon: MessageCircle,
-    title: 'Müşteri Hizmetleri Asistanı',
-    description: '7/24 müşteri desteği sağlayın, sık sorulan soruları yanıtlayın ve sorunları anında çözün.',
+    icon: Briefcase,
+    title: 'Proje Planlama ve Takip',
+    description: 'Projelerinizi baştan sona planlayın, görevleri atayın, zaman çizelgeleri oluşturun ve ilerlemeyi etkin bir şekilde izleyin.',
     benefits: [
-      'Yanıt sürelerini kısaltın',
-      'Müşteri memnuniyetini artırın',
-      'Destek maliyetlerini düşürün',
-      'Çok dilli destek sunun',
+      'Net proje yol haritaları oluşturun',
+      'Kaynakları verimli kullanın',
+      'Riskleri erken tespit edin',
+      'Teslim tarihlerine uyun',
     ],
-    link: '/solutions/customer-service',
+    link: '/solutions/project-planning',
     themeColorClass: 'text-primary border-primary hover:bg-primary/10'
   },
   {
-    icon: ShoppingCart,
-    title: 'E-ticaret Satış Asistanı',
-    description: 'Müşterilere ürün önerilerinde bulunun, sipariş takibi yapın ve satış sonrası destek sağlayın.',
+    icon: Users,
+    title: 'Ekip İşbirliği ve İletişim',
+    description: 'Ekip üyeleri arasında sorunsuz iletişim sağlayın, dosya paylaşımını kolaylaştırın ve ortak çalışma alanları oluşturun.',
     benefits: [
-      'Satış dönüşüm oranlarını artırın',
-      'Kişiselleştirilmiş alışveriş deneyimi sunun',
-      'Sepet terk oranlarını azaltın',
-      'Çapraz satış fırsatları yaratın',
+      'Ekip içi şeffaflığı artırın',
+      'Karar alma süreçlerini hızlandırın',
+      'Bilgi akışını merkezileştirin',
+      'Uzaktan çalışmayı destekleyin',
     ],
-    link: '/solutions/ecommerce-sales',
-    themeColorClass: 'text-green-400 border-green-400 hover:bg-green-400/10' // Example secondary color
+    link: '/solutions/team-collaboration',
+    themeColorClass: 'text-green-500 border-green-500 hover:bg-green-500/10' // Example secondary color
   },
   {
-    icon: Settings,
-    title: 'Operasyonel Verimlilik Asistanı',
-    description: 'İç süreçleri otomatikleştirin, randevu planlaması yapın, veri girişi görevlerini hızlandırın.',
+    icon: Lightbulb, // Changed from Settings
+    title: 'Kaynak ve Görev Yönetimi',
+    description: 'Görevleri önceliklendirin, kaynakları atayın, iş yükünü dengeleyin ve ekip üyelerinin performansını izleyin.',
     benefits: [
-      'Operasyonel verimliliği artırın',
-      'İnsan hatasını en aza indirin',
-      'Çalışanların iş yükünü hafifletin',
-      'Süreçleri standardize edin',
+      'İş yükünü optimize edin',
+      'Verimliliği en üst düzeye çıkarın',
+      'Görev darboğazlarını belirleyin',
+      'Ekip motivasyonunu artırın',
     ],
-    link: '/solutions/operational-efficiency',
-    themeColorClass: 'text-blue-400 border-blue-400 hover:bg-blue-400/10' // Example tertiary color
+    link: '/solutions/task-management',
+    themeColorClass: 'text-blue-500 border-blue-500 hover:bg-blue-500/10' // Example tertiary color
   },
 ];
 
@@ -53,7 +53,7 @@ export default function SolutionsShowcaseSection() {
           <p className="section-title-sm text-primary">ÇÖZÜMLERİMİZ</p>
           <h2 className="section-title">İşletmeniz İçin Akıllı Çözümler</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            AssistoWeb, çeşitli iş ihtiyaçlarına yönelik özelleştirilebilir yapay zeka sanal asistan çözümleri sunar. İşletmenizin potansiyelini keşfedin.
+            Softo, çeşitli proje yönetimi ihtiyaçlarına yönelik özelleştirilebilir çözümler sunar. İşletmenizin potansiyelini keşfedin.
           </p>
         </ScrollAnimationWrapper>
 

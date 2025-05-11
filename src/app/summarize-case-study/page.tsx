@@ -4,7 +4,7 @@ import { FileText, Lightbulb } from 'lucide-react';
 
 export default function SummarizeCaseStudyPage() {
   return (
-    <div className="section-padding bg-gradient-to-b from-card to-background">
+    <div className="section-padding bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto max-w-3xl">
         <ScrollAnimationWrapper className="text-center mb-12">
           <div className="inline-flex items-center justify-center p-3 rounded-full bg-primary/10 mb-4">

@@ -7,16 +7,16 @@ import { Star } from 'lucide-react';
 
 export default function InstallProCtaSection() {
   return (
-    <section id="install-pro-cta" className="section-padding bg-primary"> {/* Primary is neon green */}
+    <section id="install-pro-cta" className="section-padding bg-primary">
       <div className="container mx-auto max-w-6xl">
         <ScrollAnimationWrapper className="rounded-xl p-8 md:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
             <div className="lg:col-span-3 text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
-                AssistoWeb Pro ile Her Şeyi Özelleştirin!
+                Softo Pro ile Her Şeyi Özelleştirin!
               </h2>
               <p className="text-lg text-primary-foreground/90 mb-8">
-                Pro sürümümüzle gelişmiş özelliklerin, sınırsız özelleştirmenin ve öncelikli desteğin kilidini açın. Sanal asistan deneyiminizi bir üst seviyeye taşıyın.
+                Pro sürümümüzle gelişmiş özelliklerin, sınırsız özelleştirmenin ve öncelikli desteğin kilidini açın. Proje yönetimi deneyiminizi bir üst seviyeye taşıyın.
               </p>
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                 <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 font-semibold text-base px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
@@ -30,11 +30,11 @@ export default function InstallProCtaSection() {
             <div className="lg:col-span-2 mt-8 lg:mt-0 flex justify-center">
               <div className="relative w-64 h-64 sm:w-80 sm:h-80">
                 <Image
-                  src="https://picsum.photos/seed/aiprofeatures/400/400"
-                  alt="Özelleştirilebilir AI arayüz elementleri"
+                  src="https://picsum.photos/seed/profeatures/400/400"
+                  alt="Özelleştirilebilir arayüz elementleri"
                   layout="fill"
                   objectFit="contain"
-                  data-ai-hint="ai ui customization"
+                  data-ai-hint="ui customization"
                   className="transform transition-transform duration-500 hover:scale-105"
                 />
               </div>

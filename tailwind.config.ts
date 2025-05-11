@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"], // Keep class strategy if a future toggle is needed
+    darkMode: ["class"], 
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,14 +10,14 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'], // Default body font
-        display: ['var(--font-manrope)', 'sans-serif'], // Default heading font (Manrope as fallback for Cal Sans)
+        sans: ['var(--font-inter)', 'sans-serif'], 
+        display: ['var(--font-manrope)', 'sans-serif'], 
       },
   		colors: {
         border: 'hsl(var(--border))',
         input: {
           DEFAULT: 'hsl(var(--input))',
-          border: 'hsl(var(--input-border))', // Custom input border color from CSS vars
+          border: 'hsl(var(--input-border))', 
         },
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
@@ -50,10 +50,6 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // App specific colors (from CSS variables)
-        'app-dark-navy': 'hsl(var(--app-dark-navy))',
-        'app-gray': 'hsl(var(--app-gray))',
-        'app-neon-green': 'hsl(var(--app-neon-green))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -63,11 +59,10 @@ export default {
         },
   		},
   		borderRadius: {
-        // Consistent with --radius from globals.css
         lg: 'var(--radius)', 
-        md: 'calc(var(--radius) - 2px)', // If --radius is 0.75rem, md is ~0.625rem
-        sm: 'calc(var(--radius) - 4px)', // If --radius is 0.75rem, sm is ~0.5rem
-        xl: 'calc(var(--radius) + 4px)', // For larger cards
+        md: 'calc(var(--radius) - 2px)', 
+        sm: 'calc(var(--radius) - 4px)', 
+        xl: 'calc(var(--radius) + 4px)', 
         full: '9999px',
   		},
   		keyframes: {
@@ -87,21 +82,15 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        'gradient-shift': { // For Hero section animated gradient
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
-        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.7s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
-        'gradient-shift': 'gradient-shift 10s ease infinite',
   		},
       backgroundSize: {
-        '200%': '200% 200%', // For hero gradient animation
+        '200%': '200% 200%',
       }
   	}
   },

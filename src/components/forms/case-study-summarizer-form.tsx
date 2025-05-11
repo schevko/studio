@@ -136,7 +136,7 @@ export default function CaseStudySummarizerForm() {
           )}
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full btn-primary-assist" disabled={!file || isPending}>
+          <Button type="submit" className="w-full btn-primary-softo" disabled={!file || isPending}>
             {isPending ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (

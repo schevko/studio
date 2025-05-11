@@ -13,20 +13,20 @@ import { HelpCircle } from 'lucide-react';
 
 const faqData = [
   {
-    question: "AssistoWeb nedir?",
-    answer: "AssistoWeb, işletmelerin çeşitli ihtiyaçları için özel olarak tasarlanmış yapay zeka destekli sanal asistan çözümleri sunan bir platformdur. Müşteri hizmetleri, satış, pazarlama ve operasyonel verimlilik gibi alanlarda otomasyon sağlar.",
+    question: "Softo nedir?",
+    answer: "Softo, işletmelerin ve ekiplerin projelerini daha verimli yönetmelerine yardımcı olmak için tasarlanmış modern bir proje yönetimi yazılımıdır. Görev takibi, zaman planlaması, ekip işbirliği ve raporlama gibi özellikler sunar.",
   },
   {
-    question: "AssistoWeb işletmeme nasıl yardımcı olabilir?",
-    answer: "AssistoWeb, tekrarlayan görevleri otomatikleştirerek, müşteri etkileşimlerini kişiselleştirerek, 7/24 destek sunarak ve veri analizi ile stratejik kararlar almanıza yardımcı olarak işletmenizin büyümesine katkıda bulunur.",
+    question: "Softo işletmeme nasıl yardımcı olabilir?",
+    answer: "Softo, projelerinizi organize etmenizi, görevleri atamanızı, ilerlemeyi izlemenizi ve ekibinizle etkili bir şekilde iletişim kurmanızı sağlar. Bu sayede verimliliği artırır, teslim tarihlerine uymanıza yardımcı olur ve proje başarısını destekler.",
   },
   {
     question: "Ücretsiz deneme sürümü var mı?",
-    answer: "Evet, AssistoWeb'in özelliklerini keşfetmeniz için 14 günlük ücretsiz deneme sürümü sunuyoruz. Deneme sürümüne kaydolmak için kredi kartı gerekmez.",
+    answer: "Evet, Softo'nun özelliklerini keşfetmeniz için 30 günlük ücretsiz deneme sürümü sunuyoruz. Deneme sürümüne kaydolmak için kredi kartı gerekmez.",
   },
   {
     question: "Hangi entegrasyonları destekliyorsunuz?",
-    answer: "AssistoWeb, popüler CRM, e-ticaret platformları, mesajlaşma uygulamaları ve daha fazlasıyla entegre olabilir. Entegrasyon listemizi sürekli genişletiyoruz. Kurumsal planlarımız özel entegrasyon seçenekleri de sunar.",
+    answer: "Softo, popüler takvim uygulamaları, dosya depolama servisleri, iletişim araçları ve daha fazlasıyla entegre olabilir. Entegrasyon listemizi sürekli genişletiyoruz. Kurumsal planlarımız özel entegrasyon seçenekleri de sunar.",
   },
 ];
 
@@ -59,19 +59,19 @@ export default function FaqSection() {
             <div className="bg-card p-8 rounded-xl text-center h-full flex flex-col justify-center items-center border border-border shadow-lg">
                <div className="relative w-32 h-32 mb-6 mx-auto rounded-full overflow-hidden ring-2 ring-primary p-1">
                  <Image
-                    src="https://picsum.photos/seed/supportai/300/300"
+                    src="https://picsum.photos/seed/supportteam/300/300"
                     alt="Destek personeli"
                     layout="fill"
                     objectFit="cover"
                     className="rounded-full"
-                    data-ai-hint="friendly support ai"
+                    data-ai-hint="friendly support team"
                   />
                </div>
               <h3 className="text-2xl font-semibold text-foreground mb-3">Sorularınız mı Var?</h3>
               <p className="text-muted-foreground mb-6">
                 Aradığınız cevabı bulamadınız mı? Destek ekibimiz size yardımcı olmak için burada.
               </p>
-              <Button asChild className="btn-primary-assist">
+              <Button asChild className="btn-primary-softo">
                 <Link href="/contact?source=faq_support"><HelpCircle className="mr-2 h-5 w-5"/> Destekle İletişime Geçin</Link>
               </Button>
             </div>
