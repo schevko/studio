@@ -13,20 +13,20 @@ import { HelpCircle } from 'lucide-react';
 
 const faqData = [
   {
-    question: "Softo nedir?",
-    answer: "Softo, işletmelerin ve ekiplerin projelerini daha verimli yönetmelerine yardımcı olmak için tasarlanmış modern bir proje yönetimi yazılımıdır. Görev takibi, zaman planlaması, ekip işbirliği ve raporlama gibi özellikler sunar.",
+    question: "Assisto nedir?",
+    answer: "Assisto, işletmelerin ve ekiplerin projelerini daha verimli yönetmelerine yardımcı olmak için tasarlanmış modern bir proje yönetimi yazılımıdır. Görev takibi, zaman planlaması, ekip işbirliği ve raporlama gibi özellikler sunar.",
   },
   {
-    question: "Softo işletmeme nasıl yardımcı olabilir?",
-    answer: "Softo, projelerinizi organize etmenizi, görevleri atamanızı, ilerlemeyi izlemenizi ve ekibinizle etkili bir şekilde iletişim kurmanızı sağlar. Bu sayede verimliliği artırır, teslim tarihlerine uymanıza yardımcı olur ve proje başarısını destekler.",
+    question: "Assisto işletmeme nasıl yardımcı olabilir?",
+    answer: "Assisto, projelerinizi organize etmenizi, görevleri atamanızı, ilerlemeyi izlemenizi ve ekibinizle etkili bir şekilde iletişim kurmanızı sağlar. Bu sayede verimliliği artırır, teslim tarihlerine uymanıza yardımcı olur ve proje başarısını destekler.",
   },
   {
     question: "Ücretsiz deneme sürümü var mı?",
-    answer: "Evet, Softo'nun özelliklerini keşfetmeniz için 30 günlük ücretsiz deneme sürümü sunuyoruz. Deneme sürümüne kaydolmak için kredi kartı gerekmez.",
+    answer: "Evet, Assisto'nun özelliklerini keşfetmeniz için 30 günlük ücretsiz deneme sürümü sunuyoruz. Deneme sürümüne kaydolmak için kredi kartı gerekmez.",
   },
   {
     question: "Hangi entegrasyonları destekliyorsunuz?",
-    answer: "Softo, popüler takvim uygulamaları, dosya depolama servisleri, iletişim araçları ve daha fazlasıyla entegre olabilir. Entegrasyon listemizi sürekli genişletiyoruz. Kurumsal planlarımız özel entegrasyon seçenekleri de sunar.",
+    answer: "Assisto, popüler takvim uygulamaları, dosya depolama servisleri, iletişim araçları ve daha fazlasıyla entegre olabilir. Entegrasyon listemizi sürekli genişletiyoruz. Kurumsal planlarımız özel entegrasyon seçenekleri de sunar.",
   },
 ];
 

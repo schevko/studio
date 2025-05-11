@@ -22,7 +22,7 @@ export default function IntegrationsSection() {
           <p className="section-title-sm text-primary">ENTEGRASYONLAR</p>
           <h2 className="section-title">Popüler Araçlarla Sorunsuz Entegrasyon</h2>
           <p className="section-subtitle mx-auto max-w-xl">
-            Softo, mevcut iş akışlarınızı kolaylaştırmak için kullandığınız araçlarla sorunsuz bir şekilde entegre olur.
+            Assisto, mevcut iş akışlarınızı kolaylaştırmak için kullandığınız araçlarla sorunsuz bir şekilde entegre olur.
           </p>
         </ScrollAnimationWrapper>
 

@@ -41,7 +41,7 @@ const steps = [
     stepNumber: '01',
     icon: UserPlus,
     title: 'Hesap Oluşturun',
-    description: 'Birkaç dakika içinde kaydolun ve Softo çalışma alanınızı kurun. 30 günlük deneme için kredi kartı gerekmez.',
+    description: 'Birkaç dakika içinde kaydolun ve Assisto çalışma alanınızı kurun. 30 günlük deneme için kredi kartı gerekmez.',
     iconBgColor: 'bg-accent/10', 
     iconTextColor: 'text-accent',
   },
@@ -57,7 +57,7 @@ const steps = [
     stepNumber: '03',
     icon: Rocket,
     title: 'Verimliliği Artırın',
-    description: 'Softo ile projelerinizi yönetin, ekibinizle işbirliği yapın ve hedeflerinize daha hızlı ulaşın.',
+    description: 'Assisto ile projelerinizi yönetin, ekibinizle işbirliği yapın ve hedeflerinize daha hızlı ulaşın.',
     iconBgColor: 'bg-accent/10',
     iconTextColor: 'text-accent',
   },
@@ -69,9 +69,9 @@ export default function HowItWorksSection() {
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
           <p className="section-title-sm text-primary">SÜRECİMİZ</p>
-          <h2 className="section-title">Softo Nasıl Çalışır?</h2>
+          <h2 className="section-title">Assisto Nasıl Çalışır?</h2>
           <p className="section-subtitle mx-auto">
-            Softo ile üç basit adımda başlayın. Proje yönetiminizi kolaylaştırın ve üretkenliğinizi artırın.
+            Assisto ile üç basit adımda başlayın. Proje yönetiminizi kolaylaştırın ve üretkenliğinizi artırın.
           </p>
         </ScrollAnimationWrapper>
 

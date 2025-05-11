@@ -10,7 +10,7 @@ export default function ContactTeaserSection() {
       <div className="container mx-auto max-w-4xl text-center">
         <ScrollAnimationWrapper>
           <h2 className="text-3xl font-bold mb-4 sm:text-4xl">
-            Softo ile Tanışmaya Hazır mısınız?
+            Assisto ile Tanışmaya Hazır mısınız?
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto text-primary-foreground/90">
             Proje yönetimi çözümlerimizin işletmenize nasıl değer katabileceğini öğrenmek için bizimle iletişime geçin.

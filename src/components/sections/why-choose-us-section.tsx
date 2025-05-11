@@ -74,9 +74,9 @@ export default function WhyChooseUsSection() {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="lg:pl-8">
             <p className="section-title-sm text-primary">NEDEN BİZ?</p>
-            <h2 className="section-title mb-6">Neden Softo'yu Seçmelisiniz?</h2>
+            <h2 className="section-title mb-6">Neden Assisto'yu Seçmelisiniz?</h2>
             <p className="section-subtitle mb-8">
-              Softo, işletmelerin ve ekiplerin proje yönetimi süreçlerini optimize etmelerine, verimliliklerini artırmalarına ve hedeflerine daha hızlı ulaşmalarına yardımcı olmak için tasarlanmıştır.
+              Assisto, işletmelerin ve ekiplerin proje yönetimi süreçlerini optimize etmelerine, verimliliklerini artırmalarına ve hedeflerine daha hızlı ulaşmalarına yardımcı olmak için tasarlanmıştır.
             </p>
             <div className="space-y-6">
               {features.map((feature, index) => (

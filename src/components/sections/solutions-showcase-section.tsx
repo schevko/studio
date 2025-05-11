@@ -53,7 +53,7 @@ export default function SolutionsShowcaseSection() {
           <p className="section-title-sm text-primary">ÇÖZÜMLERİMİZ</p>
           <h2 className="section-title">İşletmeniz İçin Akıllı Çözümler</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Softo, çeşitli proje yönetimi ihtiyaçlarına yönelik özelleştirilebilir çözümler sunar. İşletmenizin potansiyelini keşfedin.
+            Assisto, çeşitli proje yönetimi ihtiyaçlarına yönelik özelleştirilebilir çözümler sunar. İşletmenizin potansiyelini keşfedin.
           </p>
         </ScrollAnimationWrapper>
 

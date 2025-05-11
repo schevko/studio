@@ -13,7 +13,7 @@ export default function InstallProCtaSection() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
             <div className="lg:col-span-3 text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
-                Softo Pro ile Her Şeyi Özelleştirin!
+                Assisto Pro ile Her Şeyi Özelleştirin!
               </h2>
               <p className="text-lg text-primary-foreground/90 mb-8">
                 Pro sürümümüzle gelişmiş özelliklerin, sınırsız özelleştirmenin ve öncelikli desteğin kilidini açın. Proje yönetimi deneyiminizi bir üst seviyeye taşıyın.

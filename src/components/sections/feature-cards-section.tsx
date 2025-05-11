@@ -48,7 +48,7 @@ export default function FeatureCardsSection() {
       <div className="container mx-auto">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
           <p className="section-title-sm text-primary">TEMEL ÖZELLİKLER</p>
-          <h2 className="section-title">Softo'nun Gücünü Keşfedin</h2>
+          <h2 className="section-title">Assisto'nun Gücünü Keşfedin</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
             Projelerinizi başarıya ulaştıracak yenilikçi özelliklerle tanışın.
           </p>

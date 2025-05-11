@@ -9,7 +9,7 @@ export default function AboutUsPage() {
         <ScrollAnimationWrapper className="text-center mb-12">
           <h1 className="section-title">Hakkımızda</h1>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Softo olarak, proje yönetimi süreçlerini basitleştiren ve ekiplerin verimliliğini artıran yenilikçi çözümler sunmaya adanmış bir teknoloji şirketiyiz. Misyonumuz, her ölçekten işletmenin hedeflerine daha hızlı ve etkili bir şekilde ulaşmasını sağlamaktır.
+            Assisto olarak, proje yönetimi süreçlerini basitleştiren ve ekiplerin verimliliğini artıran yenilikçi çözümler sunmaya adanmış bir teknoloji şirketiyiz. Misyonumuz, her ölçekten işletmenin hedeflerine daha hızlı ve etkili bir şekilde ulaşmasını sağlamaktır.
           </p>
         </ScrollAnimationWrapper>
 
@@ -17,7 +17,7 @@ export default function AboutUsPage() {
           <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden shadow-lg border border-border">
             <Image 
               src="https://picsum.photos/seed/teammeeting/1200/400" 
-              alt="Softo Ekibi Toplantıda" 
+              alt="Assisto Ekibi Toplantıda" 
               layout="fill" 
               objectFit="cover"
               data-ai-hint="team meeting office" 

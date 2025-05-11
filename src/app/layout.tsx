@@ -19,8 +19,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Softo - Proje Yönetimi Yazılım Çözümleri',
-  description: 'Softo ile proje yönetimi süreçlerinizi optimize edin, verimliliği artırın ve hedeflerinize ulaşın. Modern proje yönetimi çözümleriyle tanışın.',
+  title: 'Assisto - Proje Yönetimi Yazılım Çözümleri',
+  description: 'Assisto ile proje yönetimi süreçlerinizi optimize edin, verimliliği artırın ve hedeflerinize ulaşın. Modern proje yönetimi çözümleriyle tanışın.',
 };
 
 export default function RootLayout({

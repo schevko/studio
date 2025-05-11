@@ -32,7 +32,7 @@ export default function CollaborateSection() {
             <p className="section-title-sm text-primary">EKİP İŞBİRLİĞİ</p>
             <h2 className="section-title mb-6">Ekibinizle Çalışın ve İşbirliği Yapın</h2>
             <p className="section-subtitle mb-8">
-              Softo, ekip çalışmasını kusursuz hale getirir. Ekibinizi bir araya getirin, iletişimi kolaylaştırın ve güçlü işbirliği araçlarımızla üretkenliği artırın.
+              Assisto, ekip çalışmasını kusursuz hale getirir. Ekibinizi bir araya getirin, iletişimi kolaylaştırın ve güçlü işbirliği araçlarımızla üretkenliği artırın.
             </p>
             <div className="space-y-6 mb-8">
               {collaborationFeatures.map((item, index) => (

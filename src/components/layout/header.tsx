@@ -7,12 +7,14 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-// Inline SVG for Softo logo
-const SoftoLogo = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M2 17L12 22L22 17" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M2 12L12 17L22 12" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+// Inline SVG for Assisto logo
+const AssistoLogo = () => (
+  <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 10L12.5 85H87.5L50 10Z" fill="hsl(var(--foreground))" transform="rotate(180 50 47.5)" />
+    <path d="M45.468 43.439L20.75 85H40.13L50 67.745L59.87 85H79.25L54.532 43.439C53.032 40.939 51.011 39.004 48.587 38.032L50 10L45.468 43.439Z" fill="hsl(var(--foreground))"/>
+    <circle cx="50" cy="22" r="7" fill="#84CC16"/> {/* Green dot */}
+    <circle cx="26" cy="78" r="7" fill="#3B82F6"/> {/* Blue dot */}
+    <circle cx="74" cy="78" r="7" fill="#A855F7"/> {/* Purple dot */}
   </svg>
 );
 
@@ -71,8 +73,8 @@ export default function Header() {
         isScrolled ? "bg-card/80 backdrop-blur-md shadow-lg border-border" : "bg-transparent border-transparent shadow-none"
       )}>
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
-          <SoftoLogo />
-          <span className="mt-1">Softo</span>
+          <AssistoLogo />
+          <span className="mt-1">Assisto</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
@@ -96,8 +98,8 @@ export default function Header() {
               <SheetContent side="right" className="w-[280px] bg-card p-6">
                 <div className="flex flex-col items-start mb-6">
                  <Link href="/" className="flex items-center gap-2 text-lg font-bold text-foreground mb-4">
-                    <SoftoLogo />
-                    <span>Softo</span>
+                    <AssistoLogo />
+                    <span>Assisto</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-3">
