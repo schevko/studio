@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Animated Gradient for Hero Section */
+/* Animated Gradient for Hero Section - Kept if used elsewhere, removed from hero itself */
 @keyframes gradientChange {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -189,4 +189,63 @@ h1, h2, h3, h4, h5, h6 {
 :root {
   --font-geist-sans: ""; /* Provide defaults or remove if not used */
   --font-geist-mono: "";
+}
+
+
+/* Space Background for Hero Section */
+.space-background {
+  background-color: #000010; /* Very dark deep space blue/black */
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 0px #fff, 0 0 5px 0px #fff, 0 0 10px 0px hsl(var(--accent));
+  opacity: 0; /* Initial opacity for twinkle animation */
+  animation-timing-function: ease-in-out, linear; /* twinkle, move-up */
+  animation-iteration-count: infinite, infinite; /* twinkle, move-up */
+  animation-fill-mode: forwards; 
+}
+
+.star-type1 {
+  width: 1px;
+  height: 1px;
+  animation-name: twinkle, move-type1;
+  animation-duration: 7s, 120s; /* twinkle duration, move-up duration */
+}
+.star-type2 {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 4px 0px #fff, 0 0 7px 0px #fff, 0 0 12px 1px hsl(var(--accent));
+  animation-name: twinkle, move-type2;
+  animation-duration: 5s, 90s;
+}
+.star-type3 {
+  width: 3px;
+  height: 3px;
+  box-shadow: 0 0 5px 1px #fff, 0 0 10px 1px #fff, 0 0 18px 2px hsl(var(--accent));
+  animation-name: twinkle, move-type3;
+  animation-duration: 3s, 60s;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0.1; transform: scale(0.8); }
+  50%  { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.1; transform: scale(0.8); }
+}
+
+/* Stars start with top: 100% to 200% (below viewport) */
+/* They move upwards by 300vh in total, ensuring they cross the viewport and disappear far above */
+@keyframes move-type1 { 
+  from { transform: translateY(0%); }
+  to   { transform: translateY(-300vh); } 
+}
+@keyframes move-type2 { 
+  from { transform: translateY(0%); }
+  to   { transform: translateY(-300vh); }
+}
+@keyframes move-type3 { 
+  from { transform: translateY(0%); }
+  to   { transform: translateY(-300vh); }
 }

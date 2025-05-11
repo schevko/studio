@@ -1,11 +1,62 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 
+interface StarProps {
+  // No props needed for now, randomness handled internally
+}
+
+const Star: React.FC<StarProps> = () => {
+  const [style, setStyle] = useState<React.CSSProperties>({});
+  const [starType, setStarType] = useState<string>('');
+
+  useEffect(() => {
+    const type = Math.floor(Math.random() * 3) + 1;
+    setStarType(`star-type${type}`);
+
+    // Randomize delays for both twinkle and movement animations
+    // Twinkle delay: 0-10s, Movement delay: 0-120s (example values)
+    const twinkleDelay = Math.random() * 10;
+    const moveDelay = Math.random() * 120;
+
+
+    setStyle({
+      left: `${Math.random() * 100}%`,
+      // Start stars from below the viewport (100%) up to one viewport height further down (200%)
+      // This ensures they appear to fly in from the bottom over time
+      top: `${Math.random() * 100 + 100}%`, 
+      animationDelay: `${twinkleDelay}s, ${moveDelay}s`,
+      // animationDuration is set by .star-typeX classes
+    });
+  }, []);
+
+  // Don't render star until style is calculated to prevent flash of unstyled content or incorrect initial position
+  if (Object.keys(style).length === 0) {
+    return null;
+  }
+
+  return <div className={`star ${starType}`} style={style} />;
+};
+
 export default function HeroSection() {
+  const [stars, setStars] = useState<React.ReactNode[]>([]);
+
+  useEffect(() => {
+    const numStars = 150; // Adjust for desired density
+    const generatedStars = Array.from({ length: numStars }).map((_, i) => (
+      <Star key={i} />
+    ));
+    setStars(generatedStars);
+  }, []);
+
+
   return (
-    <section className="relative flex h-[calc(100vh-4rem)] min-h-[600px] items-center justify-center overflow-hidden animated-gradient">
+    <section className="relative flex h-[calc(100vh-4rem)] min-h-[600px] items-center justify-center overflow-hidden space-background">
+      {stars}
       <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <ScrollAnimationWrapper animationClassName="scroll-reveal">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
