@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr"> {/* Language set to Turkish */}
+    <html lang="tr">{/* Language set to Turkish */}
       <body className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
         <div className="flex flex-col min-h-screen page-fade-in">
           <Header />
@@ -43,4 +43,3 @@ export default function RootLayout({
     </html>
   );
 }
-
