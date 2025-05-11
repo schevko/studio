@@ -1,19 +1,36 @@
 import HeroSection from '@/components/sections/hero-section';
-import SolutionsShowcase from '@/components/sections/solutions-showcase';
-import FeatureCardsSection from '@/components/sections/feature-cards-section';
-import PricingSection from '@/components/sections/pricing-section';
-import IntegrationsSection from '@/components/sections/integrations-section';
-import ContactTeaserSection from '@/components/sections/contact-teaser-section';
+import FocusSection from '@/components/sections/focus-section';
+import RealtimeMonitoringSection from '@/components/sections/realtime-monitoring-section';
+import HowItWorksSection from '@/components/sections/how-it-works-section';
+import WhyChooseUsSection from '@/components/sections/why-choose-us-section';
+import PricingSection from '@/components/sections/pricing-section'; // Will be restyled
+import CollaborateSection from '@/components/sections/collaborate-section';
+import InstallProCtaSection from '@/components/sections/install-pro-cta-section';
+import TestimonialsSection from '@/components/sections/testimonials-section';
+import FaqSection from '@/components/sections/faq-section';
+import CollaborationAgencySection from '@/components/sections/collaboration-agency-section';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <SolutionsShowcase />
-      <FeatureCardsSection />
+      <FocusSection />
+      <RealtimeMonitoringSection />
+      <HowItWorksSection />
+      <WhyChooseUsSection />
       <PricingSection />
-      <IntegrationsSection />
-      <ContactTeaserSection />
+      <CollaborateSection />
+      <InstallProCtaSection />
+      <TestimonialsSection />
+      <FaqSection />
+      <CollaborationAgencySection />
+      {/* 
+        Old sections removed:
+        <SolutionsShowcase />
+        <FeatureCardsSection />
+        <IntegrationsSection />
+        <ContactTeaserSection />
+      */}
     </>
   );
 }

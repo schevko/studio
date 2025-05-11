@@ -8,17 +8,20 @@ import Footer from '@/components/layout/footer';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
-  weight: ['400', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'], // Added more weights if needed by new design
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'AssistoWeb - AI Virtual Assistant Solutions',
-  description: 'AI-powered virtual assistants to elevate your business.',
+  title: 'Craft - Project Management Software Solutions',
+  description: 'Organize, track, and manage your projects efficiently with Craft.',
+  // Add keywords or other metadata if desired
 };
 
 export default function RootLayout({
@@ -27,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className=""> {/* Removed "dark" class to default to light theme */}
       <body className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
         <div className="flex flex-col min-h-screen page-fade-in">
           <Header />

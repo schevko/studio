@@ -4,11 +4,11 @@ import { FileText, Lightbulb } from 'lucide-react';
 
 export default function SummarizeCaseStudyPage() {
   return (
-    <div className="section-padding bg-background">
+    <div className="section-padding bg-gradient-to-b from-white to-app-light-purple/30">
       <div className="container mx-auto max-w-3xl">
         <ScrollAnimationWrapper className="text-center mb-12">
-          <div className="inline-flex items-center justify-center p-3 rounded-full bg-accent/20 mb-4">
-            <FileText className="h-10 w-10 text-accent" />
+          <div className="inline-flex items-center justify-center p-3 rounded-full bg-primary/10 mb-4">
+            <FileText className="h-10 w-10 text-primary" />
           </div>
           <h1 className="section-title">AI Case Study Summarizer</h1>
           <p className="section-subtitle">
@@ -22,9 +22,9 @@ export default function SummarizeCaseStudyPage() {
         </ScrollAnimationWrapper>
 
         <ScrollAnimationWrapper className="mt-12">
-          <div className="bg-card p-6 rounded-lg shadow-lg border border-border">
+          <div className="bg-card p-6 rounded-xl shadow-lg border border-border">
             <div className="flex items-start">
-              <Lightbulb className="h-6 w-6 text-accent mr-3 mt-1 flex-shrink-0" />
+              <Lightbulb className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">How it Works</h3>
                 <ol className="list-decimal list-inside space-y-1 text-muted-foreground text-sm">

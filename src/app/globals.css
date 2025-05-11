@@ -7,95 +7,64 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-manrope), sans-serif; /* Keeping Manrope for headings, adjust if needed */
 }
 
 @layer base {
   :root {
-    --background: 222 68% 11%; /* #0A192F Dark Navy Blue */
-    --foreground: 225 18% 85%; /* Lighter gray for text on dark background */
+    --background: 0 0% 100%; /* White */
+    --foreground: 224 71% 4%; /* Near Black for text/headings */
 
-    --card: 222 60% 15%; /* Slightly lighter navy for cards */
-    --card-foreground: 225 18% 85%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 224 71% 4%;
 
-    --popover: 222 60% 15%;
-    --popover-foreground: 225 18% 85%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 222 68% 11%; /* #0A192F Dark Navy Blue */
-    --primary-foreground: 168 100% 70%; /* #64FFDA Neon Green for text on primary */
+    --primary: 262 84% 59%; /* Purple #7C3AED */
+    --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 225 18% 61%; /* #8892B0 Sophisticated Gray */
-    --secondary-foreground: 222 68% 11%; /* Dark Navy Blue for text on secondary */
+    --secondary: 220 13% 91%; /* Light Gray for secondary elements background e.g. #E9EDF0 */
+    --secondary-foreground: 224 71% 10%; /* Dark text for on secondary background */
 
-    --muted: 222 50% 25%; /* Muted darker navy/gray */
-    --muted-foreground: 225 18% 70%; /* Lighter muted gray for text */
+    --muted: 220 9% 46%; /* Medium Gray for borders, lines #6B7280 */
+    --muted-foreground: 215 20% 65%; /* Lighter Gray for placeholder text, subtitles #A1A1AA */
 
-    --accent: 168 100% 70%; /* #64FFDA Neon Green */
-    --accent-foreground: 222 68% 11%; /* Dark Navy Blue for text on accent */
+    --accent: 262 84% 59%; /* Purple #7C3AED */
+    --accent-foreground: 0 0% 100%; /* White */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 222 50% 30%; /* Border color for dark theme */
-    --input: 222 50% 20%; /* Input background for dark theme */
-    --ring: 168 100% 70%; /* Neon Green for focus rings */
+    --border: 220 13% 88%; /* Slightly darker gray for borders #DDE1E6 */
+    --input: 0 0% 100%; /* Input background - white */
+    --input-border: 220 13% 82%; /* Input border color #CAD0D8 */
+    --ring: 262 84% 59%; /* Purple for focus rings */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* default shadcn, image uses more rounded (0.75rem or 1rem for cards) */
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Chart colors can be adjusted later if charts are implemented */
+    --chart-1: 262 84% 59%; /* primary */
+    --chart-2: 150 78% 39%; /* green */
+    --chart-3: 25 95% 53%;  /* orange */
+    --chart-4: 38 95% 58%;  /* yellow */
+    --chart-5: 210 90% 55%; /* blue */
 
-    /* Sidebar specific colors, can be adjusted if sidebar is heavily used/styled */
-    --sidebar-background: 222 65% 9%; /* Even darker navy for sidebar */
-    --sidebar-foreground: 225 18% 75%;
-    --sidebar-primary: 168 100% 70%;
-    --sidebar-primary-foreground: 222 68% 11%;
-    --sidebar-accent: 222 60% 18%;
-    --sidebar-accent-foreground: 168 100% 70%;
-    --sidebar-border: 222 50% 25%;
-    --sidebar-ring: 168 100% 70%;
+    /* Specific colors from image for highlights */
+    --app-green: 150 78% 39%; /* #10B981 */
+    --app-orange: 25 95% 53%; /* #F97316 */
+    --app-light-purple: 262 90% 96%; /* #F5F3FF for very light purple backgrounds */
+    --app-light-green: 150 70% 95%; /* #EFFCF6 */
+    --app-light-orange: 25 100% 95%; /* #FFF7ED */
+    --app-light-pink: 350 100% 97%; /* #FFF1F2 for backgrounds */
+
+    /* Font variables (already in layout, but good to keep in mind) */
+    --font-inter: "Inter", sans-serif;
+    --font-manrope: "Manrope", sans-serif;
   }
 
-  .dark {
-    /* Assuming dark is the default, these might be redundant or for explicit .dark class usage */
-    --background: 222 68% 11%;
-    --foreground: 225 18% 85%;
-    --card: 222 60% 15%;
-    --card-foreground: 225 18% 85%;
-    --popover: 222 60% 15%;
-    --popover-foreground: 225 18% 85%;
-    --primary: 222 68% 11%;
-    --primary-foreground: 168 100% 70%;
-    --secondary: 225 18% 61%;
-    --secondary-foreground: 222 68% 11%;
-    --muted: 222 50% 25%;
-    --muted-foreground: 225 18% 70%;
-    --accent: 168 100% 70%;
-    --accent-foreground: 222 68% 11%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 222 50% 30%;
-    --input: 222 50% 20%;
-    --ring: 168 100% 70%;
-
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-
-    --sidebar-background: 222 65% 9%;
-    --sidebar-foreground: 225 18% 75%;
-    --sidebar-primary: 168 100% 70%;
-    --sidebar-primary-foreground: 222 68% 11%;
-    --sidebar-accent: 222 60% 18%;
-    --sidebar-accent-foreground: 168 100% 70%;
-    --sidebar-border: 222 50% 25%;
-    --sidebar-ring: 168 100% 70%;
-  }
+  /* Remove forced dark theme if it was applied globally */
+  /* .dark { ... } */
 }
 
 @layer base {
@@ -104,35 +73,42 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
-    @apply dark; /* Apply dark theme by default */
     overflow-x: hidden; /* Prevent horizontal scroll */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Animated Gradient for Hero Section - Kept if used elsewhere, removed from hero itself */
-@keyframes gradientChange {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Remove old animations if not used */
+/* @keyframes gradientChange { ... } */
+/* .animated-gradient { ... } */
+/* .space-background { ... } */
+/* .star { ... } */
+/* keyframes star animations ... */
+
+/* General Section Styling based on image */
+.section-padding {
+  @apply py-16 px-4 sm:px-6 lg:py-20 lg:px-8;
 }
 
-.animated-gradient {
-  background: linear-gradient(
-    -45deg,
-    hsl(222, 68%, 11%), /* Dark Navy */
-    hsl(222, 50%, 20%), /* Slightly Lighter Navy/Gray */
-    hsl(222, 60%, 15%), 
-    hsl(222, 68%, 11%)
-  );
-  background-size: 400% 400%;
-  animation: gradientChange 15s ease infinite;
+.section-title-sm { /* For sub-headings within sections, e.g., "OUR PROCESS" */
+  @apply text-sm font-bold uppercase tracking-wider text-primary mb-2;
 }
 
-/* Scroll Reveal Animations */
+.section-title {
+  @apply text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl mb-3;
+}
+
+.section-subtitle {
+  @apply mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg max-w-2xl;
+}
+
+
+/* Scroll Reveal Animations - keep if subtle animations are desired */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .scroll-reveal.visible {
@@ -142,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Initial Page Load Fade-in */
 .page-fade-in {
-  animation: fadeInAnimation 0.8s ease-out forwards;
+  animation: fadeInAnimation 0.7s ease-out forwards;
 }
 
 @keyframes fadeInAnimation {
@@ -154,98 +130,41 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Horizontal scrollbar styling for feature cards */
+/* Horizontal scrollbar styling for feature cards (if used) */
 .horizontal-scrollbar::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .horizontal-scrollbar::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-  border-radius: 10px;
-}
-
-.horizontal-scrollbar::-webkit-scrollbar-thumb {
   background: hsl(var(--secondary));
   border-radius: 10px;
 }
 
+.horizontal-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+
 .horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent));
+  background: hsl(var(--primary));
 }
 
-.section-padding {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
+/* Global Button Style Overrides to match image more closely */
+/* This can be done via buttonVariants in button.tsx or here for global effect */
+.btn-primary-img { /* For purple buttons */
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-3 text-base font-semibold shadow-md hover:shadow-lg transition-all;
 }
 
-.section-title {
-  @apply text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl mb-4;
+.btn-secondary-img { /* For white buttons with purple border */
+  @apply bg-background text-primary border border-primary hover:bg-primary/10 rounded-lg px-6 py-3 text-base font-semibold shadow-sm hover:shadow-md transition-all;
 }
 
-.section-subtitle {
-  @apply mt-4 text-lg leading-7 text-muted-foreground sm:text-xl;
+.btn-link-img { /* For text links that look like buttons */
+  @apply text-primary hover:text-primary/80 font-semibold;
 }
 
-/* Fix for Geist font variables if not explicitly used in layout */
+/* Ensure Geist font variables are defaulted if not used, or remove if Inter/Manrope cover all cases */
 :root {
-  --font-geist-sans: ""; /* Provide defaults or remove if not used */
+  --font-geist-sans: ""; 
   --font-geist-mono: "";
-}
-
-
-/* Space Background for Hero Section */
-.space-background {
-  background-color: #000010; /* Very dark deep space blue/black */
-}
-
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 3px 0px #fff, 0 0 5px 0px #fff, 0 0 10px 0px hsl(var(--accent));
-  opacity: 0; /* Initial opacity for twinkle animation */
-  animation-timing-function: ease-in-out, linear; /* twinkle, move-up */
-  animation-iteration-count: infinite, infinite; /* twinkle, move-up */
-  animation-fill-mode: forwards; 
-}
-
-.star-type1 {
-  width: 1px;
-  height: 1px;
-  animation-name: twinkle, move-type1;
-  animation-duration: 7s, 120s; /* twinkle duration, move-up duration */
-}
-.star-type2 {
-  width: 2px;
-  height: 2px;
-  box-shadow: 0 0 4px 0px #fff, 0 0 7px 0px #fff, 0 0 12px 1px hsl(var(--accent));
-  animation-name: twinkle, move-type2;
-  animation-duration: 5s, 90s;
-}
-.star-type3 {
-  width: 3px;
-  height: 3px;
-  box-shadow: 0 0 5px 1px #fff, 0 0 10px 1px #fff, 0 0 18px 2px hsl(var(--accent));
-  animation-name: twinkle, move-type3;
-  animation-duration: 3s, 60s;
-}
-
-@keyframes twinkle {
-  0%   { opacity: 0.1; transform: scale(0.8); }
-  50%  { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0.1; transform: scale(0.8); }
-}
-
-/* Stars start with top: 100% to 200% (below viewport) */
-/* They move upwards by 300vh in total, ensuring they cross the viewport and disappear far above */
-@keyframes move-type1 { 
-  from { transform: translateY(0%); }
-  to   { transform: translateY(-300vh); } 
-}
-@keyframes move-type2 { 
-  from { transform: translateY(0%); }
-  to   { transform: translateY(-300vh); }
-}
-@keyframes move-type3 { 
-  from { transform: translateY(0%); }
-  to   { transform: translateY(-300vh); }
 }

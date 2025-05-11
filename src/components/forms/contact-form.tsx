@@ -22,9 +22,9 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactSubmission } from '@/app/contact/actions';
+import { handleContactSubmission } from '@/app/contact/actions'; // Assuming action path is still valid
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useState, useTransition } from 'react';
+import { useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
@@ -57,6 +57,7 @@ export default function ContactForm() {
   async function onSubmit(values: ContactFormValues) {
     startTransition(async () => {
       try {
+        // Assuming handleContactSubmission is adapted or generic enough
         const result = await handleContactSubmission(values);
         if (result.success) {
           toast({
@@ -82,7 +83,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="shadow-xl bg-card">
+    <Card className="shadow-xl bg-card border border-border rounded-xl">
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-foreground">Send us a Message</CardTitle>
       </CardHeader>
@@ -94,9 +95,9 @@ export default function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full Name</FormLabel>
+                  <FormLabel className="text-foreground/80">Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} className="bg-input text-foreground placeholder:text-muted-foreground" />
+                    <Input placeholder="John Doe" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -107,9 +108,9 @@ export default function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel className="text-foreground/80">Email Address</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-input text-foreground placeholder:text-muted-foreground" />
+                    <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -120,9 +121,9 @@ export default function ContactForm() {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company (Optional)</FormLabel>
+                  <FormLabel className="text-foreground/80">Company (Optional)</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your Company Inc." {...field} className="bg-input text-foreground placeholder:text-muted-foreground" />
+                    <Input placeholder="Your Company Inc." {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -133,14 +134,14 @@ export default function ContactForm() {
               name="inquiryType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Inquiry Type</FormLabel>
+                  <FormLabel className="text-foreground/80">Inquiry Type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="bg-input text-foreground">
+                      <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg">
                         <SelectValue placeholder="Select an inquiry type" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-popover text-popover-foreground">
+                    <SelectContent className="bg-popover text-popover-foreground rounded-lg">
                       <SelectItem value="demo">Request a Demo</SelectItem>
                       <SelectItem value="quote">Get a Custom Quote</SelectItem>
                       <SelectItem value="sales">Contact Sales</SelectItem>
@@ -156,11 +157,11 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-foreground/80">Message</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us more about your needs..."
-                      className="resize-none bg-input text-foreground placeholder:text-muted-foreground"
+                      className="resize-none bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg"
                       rows={5}
                       {...field}
                     />
@@ -169,7 +170,7 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90" disabled={isPending}>
+            <Button type="submit" className="w-full btn-primary-img" disabled={isPending}>
               {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
               Send Message
             </Button>

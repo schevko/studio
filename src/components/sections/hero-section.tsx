@@ -1,90 +1,69 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-
-interface StarProps {
-  // No props needed for now, randomness handled internally
-}
-
-const Star: React.FC<StarProps> = () => {
-  const [style, setStyle] = useState<React.CSSProperties>({});
-  const [starType, setStarType] = useState<string>('');
-
-  useEffect(() => {
-    const type = Math.floor(Math.random() * 3) + 1;
-    setStarType(`star-type${type}`);
-
-    // Randomize delays for both twinkle and movement animations
-    // Twinkle delay: 0-10s, Movement delay: 0-120s (example values)
-    const twinkleDelay = Math.random() * 10;
-    const moveDelay = Math.random() * 120;
-
-
-    setStyle({
-      left: `${Math.random() * 100}%`,
-      // Start stars from below the viewport (100%) up to one viewport height further down (200%)
-      // This ensures they appear to fly in from the bottom over time
-      top: `${Math.random() * 100 + 100}%`, 
-      animationDelay: `${twinkleDelay}s, ${moveDelay}s`,
-      // animationDuration is set by .star-typeX classes
-    });
-  }, []);
-
-  // Don't render star until style is calculated to prevent flash of unstyled content or incorrect initial position
-  if (Object.keys(style).length === 0) {
-    return null;
-  }
-
-  return <div className={`star ${starType}`} style={style} />;
-};
+import Image from 'next/image';
+import { Settings, Target, PlayCircle } from 'lucide-react'; // Icons for title
 
 export default function HeroSection() {
-  const [stars, setStars] = useState<React.ReactNode[]>([]);
-
-  useEffect(() => {
-    const numStars = 150; // Adjust for desired density
-    const generatedStars = Array.from({ length: numStars }).map((_, i) => (
-      <Star key={i} />
-    ));
-    setStars(generatedStars);
-  }, []);
-
-
   return (
-    <section className="relative flex h-[calc(100vh-4rem)] min-h-[600px] items-center justify-center overflow-hidden space-background">
-      {stars}
-      <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <ScrollAnimationWrapper animationClassName="scroll-reveal">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="block text-foreground">Elevate Your Business with</span>
-            <span className="block text-accent">AI-Powered Assistants</span>
-          </h1>
-        </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animationClassName="scroll-reveal" className="mt-6">
-          <p className="mt-6 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-8 md:max-w-2xl">
-            AssistoWeb provides intelligent virtual assistants tailored to streamline your operations, enhance customer engagement, and drive growth.
-          </p>
-        </ScrollAnimationWrapper>
-        <ScrollAnimationWrapper animationClassName="scroll-reveal" className="mt-8">
-          <div className="mt-10 flex justify-center space-x-4">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              <Link href="/contact">
-                Request a Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              <Link href="/#solutions">
-                Explore Solutions
-              </Link>
-            </Button>
+    <section 
+      className="relative section-padding bg-gradient-to-br from-app-light-pink via-white to-app-light-purple overflow-hidden"
+      style={{
+        // A very subtle gradient like in the image
+        // background: 'linear-gradient(135deg, #fff1ec 0%, #ffffff 50%, #e0f2fe 100%)' // Example
+      }}
+    >
+      <div className="container mx-auto max-w-7xl z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="text-center lg:text-left">
+            <ScrollAnimationWrapper animationClassName="fade-in-up">
+              <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+                Project <span className="inline-flex items-center">Management<Settings className="w-8 h-8 sm:w-10 sm:h-10 text-app-green ml-2" /></span> Software Solutions <span className="inline-flex items-center"><Target className="w-8 h-8 sm:w-10 sm:h-10 text-app-orange ml-1" /></span>
+              </h1>
+            </ScrollAnimationWrapper>
+            <ScrollAnimationWrapper animationClassName="fade-in-up" className="mt-6">
+              <p className="mt-4 text-lg text-muted-foreground sm:text-xl max-w-xl mx-auto lg:mx-0">
+                Organize, track, and manage your team projects from start to finish with Craft's intuitive and powerful software.
+              </p>
+            </ScrollAnimationWrapper>
+            <ScrollAnimationWrapper animationClassName="fade-in-up" className="mt-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button asChild size="lg" className="btn-primary-img shadow-lg transform hover:scale-105">
+                  <Link href="/get-started">
+                    Get Started
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="bg-white text-foreground border-border hover:bg-secondary shadow-sm transform hover:scale-105">
+                  <Link href="/watch-demo">
+                    <PlayCircle className="mr-2 h-5 w-5 text-primary" />
+                    Watch Demo
+                  </Link>
+                </Button>
+              </div>
+            </ScrollAnimationWrapper>
           </div>
-        </ScrollAnimationWrapper>
+
+          {/* Image Placeholder */}
+          <ScrollAnimationWrapper animationClassName="fade-in-up" className="mt-10 lg:mt-0">
+            <div className="relative aspect-[4/3] lg:aspect-[5/4] w-full max-w-2xl mx-auto">
+              <Image
+                src="https://picsum.photos/seed/dashboardui/800/600"
+                alt="Project Management Dashboard Illustration"
+                layout="fill"
+                objectFit="contain"
+                className="rounded-xl shadow-2xl"
+                data-ai-hint="dashboard ui illustration"
+                priority
+              />
+            </div>
+          </ScrollAnimationWrapper>
+        </div>
       </div>
+      {/* Optional: Add subtle background shapes/elements if needed later */}
     </section>
   );
 }
