@@ -1,3 +1,4 @@
+
 'use client';
 import Link from 'next/link';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -25,10 +26,10 @@ export default function Header() {
       <Link
         href={href}
         className={cn(
-          'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+          'px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-out',
           isActive
-            ? 'bg-accent text-accent-foreground'
-            : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+            ? 'text-accent font-semibold' // Active: Accent color text, bold
+            : 'text-muted-foreground hover:text-foreground' // Inactive: Muted text, hover to foreground text
         )}
         aria-current={isActive ? 'page' : undefined}
       >
@@ -44,7 +45,7 @@ export default function Header() {
           <BotIcon className="h-7 w-7 text-accent" />
           <span>AssistoWeb</span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-2"> {/* Increased spacing from space-x-1 to space-x-2 */}
           {navLinks.map((link) => (
             <NavLinkItem key={link.href} href={link.href} label={link.label} />
           ))}
@@ -66,7 +67,7 @@ export default function Header() {
                     className={cn(
                       'block px-3 py-2 rounded-md text-base font-medium transition-colors',
                        (pathname === link.href || (link.href.includes('#') && pathname === '/'))
-                        ? 'bg-accent text-accent-foreground'
+                        ? 'bg-accent text-accent-foreground' // Kept for mobile clarity
                         : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                     )}
                   >
