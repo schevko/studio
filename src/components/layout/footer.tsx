@@ -19,49 +19,51 @@ const GooglePlayIcon = () => (
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    sirket: [
-      { label: 'Hakkımızda', href: '/hakkimizda' },
-      { label: 'Kariyer', href: '/kariyer' },
-      { label: 'Blog', href: '/blog' },
-    ],
-    urun: [
-      { label: 'Özellikler', href: '/#features' },
-      { label: 'Fiyatlandırma', href: '/#pricing' },
-      { label: 'Entegrasyonlar', href: '/entegrasyonlar' },
-    ],
-    destek: [
-      { label: 'Yardım Merkezi', href: '/yardim' },
-      { label: 'Bize Ulaşın', href: '/contact' },
-      { label: 'API Dokümanları', href: '/developer' },
-    ],
-    yasal: [
-      { label: 'Hizmet Şartları', href: '/hizmet-sartlari' },
-      { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
-      { label: 'Çerez Politikası', href: '/cerez-politikasi' },
-    ],
-  };
+  const quickLinks = [
+    { label: 'Anasayfa', href: '/' },
+    { label: 'Çözümler', href: '/solutions' }, // To be created based on "Assisto Ajan Ekosistemi"
+    { label: 'Fiyatlandırma', href: '/fiyatlandirma' },
+    { label: 'Vaka Çalışmaları', href: '/vaka-calismalari' },
+    { label: 'Hakkımızda', href: '/hakkimizda' },
+    { label: 'SSS', href: '/sss' },
+    { label: 'İletişim', href: '/contact' },
+    // { label: 'Blog / Kaynaklar', href: '/blog' }, // If planned
+  ];
 
-  const socialLinks = [
-    { label: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
-    { label: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
-    { label: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
-    { label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { label: 'YouTube', icon: Youtube, href: 'https://youtube.com' },
+  const companyLinks = [
+    { label: 'Assisto Nedir?', href: '/assisto-nedir' },
+    { label: 'Neden Assisto?', href: '/neden-assisto' },
+    // { label: 'Kariyer', href: '/kariyer' },
+  ];
+
+
+  const legalLinks = [
+    { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
+    { label: 'Kullanım Şartları', href: '/kullanim-sartlari' },
+    { label: 'Çerez Politikası', href: '/cerez-politikasi' },
+  ];
+
+  const socialMediaLinks = [
+    { label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/assisto-teknoloji' }, // Placeholder URL
+    { label: 'Twitter', icon: Twitter, href: 'https://twitter.com/assisto_tr' }, // Placeholder URL
+    { label: 'Facebook', icon: Facebook, href: 'https://facebook.com/assistoteknoloji' }, // Placeholder URL
+    { label: 'Instagram', icon: Instagram, href: 'https://instagram.com/assisto_teknoloji' }, // Placeholder URL
+    { label: 'YouTube', icon: Youtube, href: 'https://youtube.com/c/AssistoTeknoloji' }, // Placeholder URL
   ];
 
   return (
     <footer className="border-t border-border/70 bg-card text-muted-foreground mt-auto">
       <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-10">
           {/* Logo & Description */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-2 pr-8">
+          <div className="col-span-2 lg:col-span-2 pr-8">
             <Link href="/" className="flex items-center text-2xl font-bold mb-3">
                <AssistoFullLogo height="28" mainColorClass="text-primary" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
-              Proje yönetimi süreçlerinizi optimize edin ve verimliliği artırın.
+              İşletmenizin dijital dönüşüm ortağı. Yapay zeka destekli sanal çalışanlarla verimliliği ve rekabet avantajını yakalayın.
             </p>
+            {/* App store buttons can be added back if/when mobile apps are available 
             <div className="mt-6 flex space-x-2">
               <Button variant="outline" className="flex items-center gap-2 text-sm h-auto py-2 px-3 border-input-border hover:border-primary text-foreground hover:text-primary">
                 <AppleStoreIcon />
@@ -78,37 +80,34 @@ export default function Footer() {
                 </div>
               </Button>
             </div>
+            */}
           </div>
 
-          {/* Link Columns */}
+          {/* Quick Links */}
+          <div>
+            <h5 className="font-semibold text-foreground mb-3">Hızlı Bağlantılar</h5>
+            <ul className="space-y-2">
+              {quickLinks.map(link => (
+                <li key={link.label}><Link href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Links */}
           <div>
             <h5 className="font-semibold text-foreground mb-3">Şirket</h5>
             <ul className="space-y-2">
-              {footerLinks.sirket.map(link => (
+              {companyLinks.map(link => (
                 <li key={link.label}><Link href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</Link></li>
               ))}
             </ul>
           </div>
-          <div>
-            <h5 className="font-semibold text-foreground mb-3">Ürün</h5>
-            <ul className="space-y-2">
-              {footerLinks.urun.map(link => (
-                <li key={link.label}><Link href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-semibold text-foreground mb-3">Destek</h5>
-            <ul className="space-y-2">
-              {footerLinks.destek.map(link => (
-                <li key={link.label}><Link href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</Link></li>
-              ))}
-            </ul>
-          </div>
+          
+           {/* Legal Links */}
            <div>
             <h5 className="font-semibold text-foreground mb-3">Yasal</h5>
             <ul className="space-y-2">
-              {footerLinks.yasal.map(link => (
+              {legalLinks.map(link => (
                 <li key={link.label}><Link href={link.href} className="text-sm hover:text-primary transition-colors">{link.label}</Link></li>
               ))}
             </ul>
@@ -117,10 +116,10 @@ export default function Footer() {
 
         <div className="border-t border-border/70 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm">
-            &copy; {currentYear} Assisto. Tüm hakları saklıdır.
+            &copy; {currentYear} Assisto. Tüm Hakları Saklıdır.
           </p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
-            {socialLinks.map(social => (
+            {socialMediaLinks.map(social => (
               <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="text-muted-foreground hover:text-primary transition-colors">
                 <social.icon className="w-5 h-5" />
               </Link>

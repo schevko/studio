@@ -27,12 +27,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
 
+const phoneRegex = new RegExp(
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
+
+
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Adınız en az 2 karakter olmalıdır.' }),
   email: z.string().email({ message: 'Lütfen geçerli bir e-posta adresi girin.' }),
+  phone: z.string().regex(phoneRegex, 'Geçersiz telefon numarası formatı.').optional().or(z.literal('')), // Optional phone number
   company: z.string().optional(),
-  inquiryType: z.enum(['demo', 'quote', 'sales', 'general'], {
-    required_error: 'Lütfen bir talep türü seçin.',
+  subject: z.enum(['demo', 'sales', 'support', 'partnership', 'other'], { // Updated inquiry types
+    required_error: 'Lütfen bir konu seçin.',
   }),
   message: z.string().min(10, { message: 'Mesajınız en az 10 karakter olmalıdır.' }).max(1000),
 });
@@ -48,8 +54,9 @@ export default function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       company: '',
-      inquiryType: undefined,
+      subject: undefined,
       message: '',
     },
   });
@@ -96,7 +103,7 @@ export default function ContactForm() {
                 <FormItem>
                   <FormLabel className="text-foreground/80">Adınız Soyadınız</FormLabel>
                   <FormControl>
-                    <Input placeholder="Ali Veli" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                    <Input placeholder="Adınız Soyadınız" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -109,7 +116,20 @@ export default function ContactForm() {
                 <FormItem>
                   <FormLabel className="text-foreground/80">E-posta Adresiniz</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="ali.veli@example.com" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                    <Input type="email" placeholder="ornek@example.com" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-foreground/80">Telefon Numaranız (İsteğe Bağlı)</FormLabel>
+                  <FormControl>
+                    <Input type="tel" placeholder="+90 555 123 4567" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -120,7 +140,7 @@ export default function ContactForm() {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Şirket (İsteğe Bağlı)</FormLabel>
+                  <FormLabel className="text-foreground/80">Şirket Adınız (İsteğe Bağlı)</FormLabel>
                   <FormControl>
                     <Input placeholder="Şirket Adınız A.Ş." {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
@@ -130,21 +150,22 @@ export default function ContactForm() {
             />
             <FormField
               control={form.control}
-              name="inquiryType"
+              name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Talep Türü</FormLabel>
+                  <FormLabel className="text-foreground/80">Konu</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg data-[placeholder]:text-muted-foreground">
-                        <SelectValue placeholder="Bir talep türü seçin" />
+                        <SelectValue placeholder="Bir konu seçin" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent className="bg-popover text-popover-foreground rounded-lg border-border">
                       <SelectItem value="demo">Demo Talebi</SelectItem>
-                      <SelectItem value="quote">Özel Fiyat Teklifi</SelectItem>
-                      <SelectItem value="sales">Satış Ekibiyle İletişim</SelectItem>
-                      <SelectItem value="general">Genel Soru</SelectItem>
+                      <SelectItem value="sales">Satış Sorusu</SelectItem>
+                      <SelectItem value="support">Teknik Destek</SelectItem>
+                      <SelectItem value="partnership">İş Ortaklığı</SelectItem>
+                      <SelectItem value="other">Diğer</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -159,7 +180,7 @@ export default function ContactForm() {
                   <FormLabel className="text-foreground/80">Mesajınız</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="İhtiyaçlarınız hakkında bize daha fazla bilgi verin..."
+                      placeholder="Mesajınızı buraya yazın..."
                       className="resize-none bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg"
                       rows={5}
                       {...field}
@@ -169,9 +190,9 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full btn-primary-softo" disabled={isPending}>
+            <Button type="submit" className="w-full btn-primary-softo rounded-full" disabled={isPending}>
               {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-              Mesajı Gönder
+              Gönder
             </Button>
           </form>
         </Form>

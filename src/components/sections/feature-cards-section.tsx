@@ -1,69 +1,56 @@
 'use client';
 import FeatureCard from '@/components/cards/feature-card';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import { Zap, BrainCircuit, MessageSquare, Users, ShieldCheck, Settings, BarChartHorizontalBig } from 'lucide-react';
+import { Zap, DollarSign, Users, Award, TrendingUp, ShieldCheck, Settings, BarChartHorizontalBig } from 'lucide-react';
 
-const features = [
+const benefits = [
   {
-    icon: BarChartHorizontalBig,
-    title: 'Kapsamlı Proje Takibi',
-    description: 'Projelerinizin her aşamasını detaylı bir şekilde takip edin, görevleri yönetin ve ilerlemeyi görün.',
+    icon: TrendingUp, // Represents increase/growth
+    title: 'Operasyonel Verimlilikte Artış',
+    description: 'Tekrarlayan görevleri otomatikleştirin, insan hatasını azaltın ve süreçlerinizi hızlandırın.',
     iconColorClass: 'text-primary',
   },
   {
-    icon: BrainCircuit,
-    title: 'Akıllı Raporlama',
-    description: 'Veriye dayalı kararlar almak için kapsamlı raporlar ve analizlerle projelerinizin performansını ölçün.',
+    icon: DollarSign,
+    title: 'Maliyet Optimizasyonu',
+    description: 'Personel ve operasyonel giderlerde önemli tasarruflar sağlayarak karlılığınızı artırın.',
     iconColorClass: 'text-primary',
   },
   {
-    icon: Users,
-    title: 'Ekip İşbirliği',
-    description: 'Ekip üyeleriyle kolayca iletişim kurun, dosyaları paylaşın ve projelerde birlikte çalışın.',
+    icon: Users, // Represents team/people
+    title: 'İnsan Kaynağını Güçlendirme',
+    description: 'Çalışanlarınızın monoton işlerden kurtularak stratejik ve yaratıcı görevlere odaklanmasını sağlayın.',
     iconColorClass: 'text-primary',
   },
   {
-    icon: Settings,
-    title: 'Özelleştirilebilir Akışlar',
-    description: 'İş akışlarınızı kendi ihtiyaçlarınıza göre özelleştirin ve proje süreçlerinizi optimize edin.',
-    iconColorClass: 'text-primary',
-  },
-  {
-    icon: Zap,
-    title: 'Hızlı Entegrasyon',
-    description: 'Mevcut araçlarınızla (takvim, depolama vb.) kolayca entegre olarak kesintisiz bir çalışma deneyimi yaşayın.',
-    iconColorClass: 'text-primary',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Güvenli Veri Yönetimi',
-    description: 'Proje verilerinizi en yüksek güvenlik standartlarıyla koruyun ve gizliliğe önem verin.',
+    icon: Award, // Represents advantage/leadership
+    title: 'Sürdürülebilir Rekabet Avantajı',
+    description: 'Özelleştirilmiş yapay zeka çözümleriyle pazar liderliğinizi güçlendirin ve geleceğe hazır olun.',
     iconColorClass: 'text-primary',
   },
 ];
 
 export default function FeatureCardsSection() {
   return (
-    <section id="features" className="section-padding bg-background">
+    <section id="benefits" className="section-padding bg-background">
       <div className="container mx-auto">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
-          <p className="section-title-sm text-primary">TEMEL ÖZELLİKLER</p>
-          <h2 className="section-title">Assisto'nun Gücünü Keşfedin</h2>
+          <p className="section-title-sm text-primary">ASSİSTO İLE</p>
+          <h2 className="section-title">İşletmenize Değer Katın</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Projelerinizi başarıya ulaştıracak yenilikçi özelliklerle tanışın.
+            Assisto'nun sunduğu temel faydalarla işletmenizin potansiyelini en üst düzeye çıkarın.
           </p>
         </ScrollAnimationWrapper>
 
         <ScrollAnimationWrapper>
           <div className="relative">
-            <div className="flex overflow-x-auto pb-8 space-x-6 horizontal-scrollbar snap-x snap-mandatory">
-              {features.map((feature, index) => (
-                <div key={index} className="snap-center w-[300px] sm:w-[320px] md:w-[350px] flex-shrink-0">
-                   <FeatureCard {...feature} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="w-full">
+                   <FeatureCard {...benefit} />
                 </div>
               ))}
             </div>
-            {/* Optional: custom scrollbar or navigation buttons for better UX on non-touch devices */}
           </div>
         </ScrollAnimationWrapper>
       </div>

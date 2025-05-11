@@ -13,36 +13,40 @@ interface Testimonial {
   avatarUrl: string;
   feedback: string;
   rating: number;
+  companyLogoUrl?: string;
   companyLogoHint?: string;
 }
 
 const testimonialsData: Testimonial[] = [
   {
     id: 1,
-    name: 'Ayşe Y.',
-    role: 'Proje Yöneticisi, TeknoGelişim Ltd.',
-    avatarUrl: 'https://picsum.photos/seed/avatarPM1/100/100',
-    feedback: "Assisto, proje yönetimi süreçlerimizi inanılmaz derecede kolaylaştırdı. Görev takibi ve ekip işbirliği özellikleri sayesinde projelerimizi zamanında ve bütçe dahilinde tamamlıyoruz.",
+    name: 'Ahmet Ç.',
+    role: 'CEO, Örnek E-Ticaret Ltd.',
+    avatarUrl: 'https://picsum.photos/seed/ahmetceo/100/100',
+    feedback: "Assisto'nun Müşteri Destek Ajanı sayesinde müşteri hizmetleri maliyetlerimizi %40 azalttık ve memnuniyeti %25 artırdık. İnanılmaz bir dönüşüm!",
     rating: 5,
-    companyLogoHint: 'teknoloji firması logo',
+    companyLogoUrl: 'https://picsum.photos/seed/eticaretlogo/150/50',
+    companyLogoHint: 'e-ticaret firma logosu',
   },
   {
     id: 2,
-    name: 'Mehmet K.',
-    role: 'CEO, Kreatif Çözümler A.Ş.',
-    avatarUrl: 'https://picsum.photos/seed/avatarCEO2/100/100',
-    feedback: "Birçok proje yönetim aracı denedik ancak Assisto'nun kullanıcı dostu arayüzü ve esnekliği bizi gerçekten etkiledi. Raporlama özellikleri de harika.",
+    name: 'Elif S.',
+    role: 'Operasyon Müdürü, Üretken A.Ş.',
+    avatarUrl: 'https://picsum.photos/seed/elifyonetici/100/100',
+    feedback: "Assisto'nun İş Akışı Otomasyon Ajanı, tekrarlayan görevlerimizi otomatikleştirerek ekibimizin daha stratejik işlere odaklanmasını sağladı. Verimliliğimizde gözle görülür bir artış var.",
     rating: 5,
-    companyLogoHint: 'ajans logo',
+    companyLogoUrl: 'https://picsum.photos/seed/uretimlogo/150/50',
+    companyLogoHint: 'üretim firma logosu',
   },
   {
     id: 3,
-    name: 'Zeynep A.',
-    role: 'Startup Kurucusu',
-    avatarUrl: 'https://picsum.photos/seed/avatarStartup3/100/100',
-    feedback: "Bir startup olarak, kaynaklarımızı verimli kullanmak bizim için çok önemli. Assisto, projelerimizi düzenli tutmamıza ve ekibimizle senkronize kalmamıza yardımcı oluyor.",
+    name: 'Can B.',
+    role: 'Finans Direktörü, Yatırım Holding',
+    avatarUrl: 'https://picsum.photos/seed/canfinans/100/100',
+    feedback: "Finansal Analiz Ajanı, karmaşık veri setlerini hızla analiz ederek karar alma süreçlerimizi iyileştirdi. Raporlama doğruluğumuz ve hızımız arttı.",
     rating: 4,
-    companyLogoHint: 'startup logo',
+    companyLogoUrl: 'https://picsum.photos/seed/finanslogo/150/50',
+    companyLogoHint: 'finans şirketi logosu',
   },
 ];
 
@@ -68,11 +72,11 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="section-padding bg-card/50"> {/* bg-card is white, so card/50 is still white. Changed to bg-secondary/20 for slight tint */}
+    <section id="testimonials" className="section-padding bg-card">
       <div className="container mx-auto max-w-4xl">
-        <ScrollAnimationWrapper className="text-center mb-10">
-          <p className="section-title-sm text-primary">MÜŞTERİ YORUMLARI</p>
-          <h2 className="section-title">Müşterilerimiz Ne Diyor?</h2>
+        <ScrollAnimationWrapper className="text-center mb-10 md:mb-12">
+          <p className="section-title-sm text-primary">BAŞARI HİKAYELERİ</p>
+          <h2 className="section-title">Başarı Hikayelerimizden Bazıları</h2>
         </ScrollAnimationWrapper>
 
         <ScrollAnimationWrapper>
@@ -85,7 +89,7 @@ export default function TestimonialsSection() {
                     alt={currentTestimonial.name}
                     layout="fill"
                     objectFit="cover"
-                    data-ai-hint="kullanıcı portre"
+                    data-ai-hint="müşteri portre"
                   />
                 </div>
                 
@@ -102,8 +106,20 @@ export default function TestimonialsSection() {
                     />
                   ))}
                 </div>
+                {currentTestimonial.companyLogoUrl && (
+                  <div className="h-10 mt-4">
+                    <Image 
+                        src={currentTestimonial.companyLogoUrl} 
+                        alt={`${currentTestimonial.role.split(', ')[1] || 'Şirket'} Logosu`}
+                        width={120} 
+                        height={40} 
+                        className="object-contain max-h-10 filter grayscale opacity-70"
+                        data-ai-hint={currentTestimonial.companyLogoHint}
+                    />
+                  </div>
+                )}
               </div>
-              <div className="flex justify-center mt-6 gap-3">
+              <div className="flex justify-center mt-8 gap-3">
                 <Button variant="outline" size="icon" onClick={handlePrev} className="rounded-full border-primary text-primary hover:bg-primary/10">
                   <ChevronLeft className="w-5 h-5" />
                 </Button>

@@ -19,8 +19,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Assisto - Proje Yönetimi Yazılım Çözümleri',
-  description: 'Assisto ile proje yönetimi süreçlerinizi optimize edin, verimliliği artırın ve hedeflerinize ulaşın. Modern proje yönetimi çözümleriyle tanışın.',
+  title: 'Assisto - Yapay Zeka Destekli Sanal Çalışan Çözümleri',
+  description: 'Assisto ile işletmenizin operasyonel verimliliğini artırın, maliyetleri optimize edin ve yapay zeka destekli sanal çalışanlarla rekabet avantajı yakalayın.',
 };
 
 export default function RootLayout({
@@ -43,3 +43,4 @@ export default function RootLayout({
     </html>
   );
 }
+
