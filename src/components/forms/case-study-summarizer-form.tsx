@@ -9,7 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { summarizeCaseStudy } from '@/ai/flows/case-study-summarization';
 import type { CaseStudySummarizationOutput } from '@/ai/flows/case-study-summarization';
-import { Loader2, AlertTriangle, CheckCircle, FileText as FileTextIcon } from 'lucide-react'; // Renamed FileText to avoid conflict
+import { Loader2, AlertTriangle, CheckCircle, FileText as FileTextIcon } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
 export default function CaseStudySummarizerForm() {
@@ -17,19 +17,19 @@ export default function CaseStudySummarizerForm() {
   const [summary, setSummary] = useState<CaseStudySummarizationOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [progressValue, setProgressValue] = useState(0); // Renamed progress to avoid conflict with Progress component
+  const [progressValue, setProgressValue] = useState(0);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
       const allowedTypes = ['application/pdf', 'text/plain', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
       if (!allowedTypes.includes(selectedFile.type)) {
-        setError('Invalid file type. Please upload a PDF, TXT, or DOCX file.');
+        setError('Geçersiz dosya türü. Lütfen bir PDF, TXT veya DOCX dosyası yükleyin.');
         setFile(null);
         return;
       }
       if (selectedFile.size > 5 * 1024 * 1024) { // 5MB limit
-        setError('File is too large. Maximum size is 5MB.');
+        setError('Dosya çok büyük. Maksimum boyut 5MB.');
         setFile(null);
         return;
       }
@@ -42,7 +42,7 @@ export default function CaseStudySummarizerForm() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!file) {
-      setError('Please select a file to summarize.');
+      setError('Lütfen özetlenecek bir dosya seçin.');
       return;
     }
 
@@ -59,7 +59,7 @@ export default function CaseStudySummarizerForm() {
         reader.onload = async () => {
           const documentDataUri = reader.result as string;
           if (!documentDataUri) {
-            setError('Failed to read the file.');
+            setError('Dosya okunamadı.');
             setProgressValue(0);
             return;
           }
@@ -71,13 +71,13 @@ export default function CaseStudySummarizerForm() {
         };
         
         reader.onerror = () => {
-          setError('Error reading file.');
+          setError('Dosya okunurken hata oluştu.');
           setProgressValue(0);
         };
 
       } catch (e) {
         console.error(e);
-        setError(e instanceof Error ? e.message : 'An unknown error occurred during summarization.');
+        setError(e instanceof Error ? e.message : 'Özetleme sırasında bilinmeyen bir hata oluştu.');
         setProgressValue(0);
       }
     });
@@ -86,12 +86,12 @@ export default function CaseStudySummarizerForm() {
   return (
     <Card className="w-full shadow-xl bg-card border border-border rounded-xl">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-foreground">Upload Your Case Study</CardTitle>
+        <CardTitle className="text-xl font-semibold text-foreground">Örnek Olayınızı Yükleyin</CardTitle>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-6">
           <div>
-            <Label htmlFor="case-study-file" className="text-foreground/80">Case Study Document</Label>
+            <Label htmlFor="case-study-file" className="text-foreground/80">Örnek Olay Dokümanı</Label>
             <Input
               id="case-study-file"
               type="file"
@@ -100,49 +100,49 @@ export default function CaseStudySummarizerForm() {
               accept=".pdf,.txt,.docx"
               disabled={isPending}
             />
-            {file && <p className="mt-2 text-sm text-muted-foreground">Selected: {file.name}</p>}
+            {file && <p className="mt-2 text-sm text-muted-foreground">Seçilen: {file.name}</p>}
           </div>
 
           {isPending && (
             <div className="space-y-2">
               <Progress value={progressValue} className="w-full h-2 [&>div]:bg-primary rounded-full" />
-              <p className="text-sm text-primary text-center">Processing document... please wait.</p>
+              <p className="text-sm text-primary text-center">Doküman işleniyor... lütfen bekleyin.</p>
             </div>
           )}
 
           {error && (
-            <Alert variant="destructive" className="bg-red-50 border-red-200 text-red-700 rounded-lg">
-              <AlertTriangle className="h-5 w-5 text-red-600" />
-              <AlertTitle className="font-semibold">Error</AlertTitle>
+            <Alert variant="destructive" className="bg-destructive/10 border-destructive/50 text-destructive-foreground rounded-lg">
+              <AlertTriangle className="h-5 w-5 text-destructive" />
+              <AlertTitle className="font-semibold">Hata</AlertTitle>
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
 
           {summary && !isPending && (
-            <Alert className="bg-green-50 border-green-200 text-green-700 rounded-lg">
-              <CheckCircle className="h-5 w-5 text-green-600" />
-              <AlertTitle className="font-semibold text-green-800">Summary Generated Successfully</AlertTitle>
+            <Alert className="bg-primary/10 border-primary/50 text-foreground rounded-lg">
+              <CheckCircle className="h-5 w-5 text-primary" />
+              <AlertTitle className="font-semibold text-primary">Özet Başarıyla Oluşturuldu</AlertTitle>
               <AlertDescription className="mt-2">
-                <h3 className="font-semibold mb-1 text-foreground">Case Study Summary:</h3>
+                <h3 className="font-semibold mb-1 text-foreground">Örnek Olay Özeti:</h3>
                 <Textarea
                   value={summary.summary}
                   readOnly
                   rows={10}
                   className="w-full p-3 rounded-lg border bg-background text-foreground border-border focus:ring-primary"
-                  aria-label="Generated case study summary"
+                  aria-label="Oluşturulan örnek olay özeti"
                 />
               </AlertDescription>
             </Alert>
           )}
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full btn-primary-img" disabled={!file || isPending}>
+          <Button type="submit" className="w-full btn-primary-assist" disabled={!file || isPending}>
             {isPending ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (
               <FileTextIcon className="mr-2 h-4 w-4" />
             )}
-            Summarize Case Study
+            Örnek Olayı Özetle
           </Button>
         </CardFooter>
       </form>

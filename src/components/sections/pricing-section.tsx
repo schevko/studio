@@ -1,84 +1,84 @@
 import PricingCard from '@/components/cards/pricing-card';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import { Button } from '@/components/ui/button'; // For "Contact Us" button
-import Link from 'next/link'; // For "Contact Us" link
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const pricingPlans = [
   {
-    planName: 'Basic',
-    price: '$19',
-    priceDescription: '/month',
-    planSubtitle: 'Billed Annually',
+    planName: 'Temel Asistan',
+    price: '₺199',
+    priceDescription: '/ay',
+    planSubtitle: 'Yıllık faturalandırılır',
     features: [
-      'Up to 10 users',
-      'Basic project tracking',
-      '5GB Storage',
-      'Community support',
-      'Task management',
+      '1 Sanal Asistan',
+      'Temel görev otomasyonu',
+      'Sınırlı entegrasyonlar',
+      'E-posta desteği',
+      'Aylık 1000 etkileşim',
     ],
-    ctaText: 'Get Started',
-    ctaLink: '/signup?plan=basic',
+    ctaText: 'Başla',
+    ctaLink: '/kayit?plan=temel',
   },
   {
-    planName: 'Pro',
-    price: '$49',
-    priceDescription: '/month',
-    planSubtitle: 'Billed Annually',
+    planName: 'Profesyonel Asistan',
+    price: '₺499',
+    priceDescription: '/ay',
+    planSubtitle: 'Yıllık faturalandırılır',
     features: [
-      'Up to 50 users',
-      'Advanced project tracking',
-      '50GB Storage',
-      'Priority email support',
-      'Time tracking & Reporting',
-      'Integrations (Slack, Google)',
+      '3 Sanal Asistan',
+      'Gelişmiş görev otomasyonu',
+      'Popüler platform entegrasyonları',
+      'Öncelikli e-posta ve telefon desteği',
+      'Aylık 5000 etkileşim',
+      'Detaylı raporlama',
     ],
-    ctaText: 'Choose Pro',
-    ctaLink: '/signup?plan=pro',
+    ctaText: 'Profesyonel Seç',
+    ctaLink: '/kayit?plan=profesyonel',
     isPopular: true,
   },
   {
-    planName: 'Enterprise',
-    price: 'Custom',
+    planName: 'Kurumsal Çözüm',
+    price: 'Özel',
     priceDescription: '',
-    planSubtitle: 'Contact for pricing',
+    planSubtitle: 'Fiyat için iletişime geçin',
     features: [
-      'Unlimited users',
-      'Customizable workflows',
-      'Unlimited Storage',
-      'Dedicated account manager',
-      'SSO & Advanced security',
-      'API Access & Custom integrations',
+      'Sınırsız Sanal Asistan',
+      'Özelleştirilmiş iş akışları',
+      'Özel API entegrasyonları',
+      'Atanmış müşteri temsilcisi',
+      'SSO ve Gelişmiş güvenlik',
+      'Sınırsız etkileşim',
     ],
-    ctaText: 'Contact Sales',
-    ctaLink: '/contact-sales?plan=enterprise',
+    ctaText: 'Satışla İletişime Geç',
+    ctaLink: '/contact?source=enterprise_pricing',
   },
 ];
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="section-padding bg-gradient-to-b from-white to-app-light-purple/50">
+    <section id="pricing" className="section-padding bg-gradient-to-b from-background to-card/30">
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimationWrapper className="text-center mb-12 md:mb-16">
-          <p className="section-title-sm">PRICING PLANS</p>
-          <h2 className="section-title">Flexible Pricing Plans</h2>
+          <p className="section-title-sm text-primary">FİYATLANDIRMA PLANLARI</p>
+          <h2 className="section-title">Esnek Fiyatlandırma Planları</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Choose a plan that fits your needs and budget. All plans come with powerful features to help you manage your projects.
+            İhtiyaçlarınıza ve bütçenize uygun bir plan seçin. Tüm planlarımız, yapay zeka asistanlarınızı yönetmenize yardımcı olacak güçlü özelliklerle birlikte gelir.
           </p>
         </ScrollAnimationWrapper>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6">
-          {pricingPlans.map((plan) => (
-            <ScrollAnimationWrapper key={plan.planName} className="flex">
+          {pricingPlans.map((plan, index) => (
+            <ScrollAnimationWrapper key={plan.planName} className="flex" style={{animationDelay: `${index * 0.1}s`}}>
               <PricingCard {...plan} />
             </ScrollAnimationWrapper>
           ))}
         </div>
         <ScrollAnimationWrapper className="mt-16 text-center">
           <p className="text-lg text-muted-foreground mb-4">
-            Need more? Get a custom plan tailored to your specific requirements.
+            Daha fazlasına mı ihtiyacınız var? Özel gereksinimlerinize göre uyarlanmış bir plan edinin.
           </p>
-          <Button asChild size="lg" className="btn-primary-img">
-            <Link href="/contact-sales">Contact Us</Link>
+          <Button asChild size="lg" className="btn-primary-assist">
+            <Link href="/contact?source=custom_plan">Bize Ulaşın</Link>
           </Button>
         </ScrollAnimationWrapper>
       </div>

@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react'; // Changed to Check icon from image
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,7 @@ interface PricingCardProps {
   ctaText: string;
   ctaLink: string;
   isPopular?: boolean;
-  planSubtitle?: string; // New prop for "Billed Annually" etc.
+  planSubtitle?: string;
 }
 
 export default function PricingCard({
@@ -28,11 +28,11 @@ export default function PricingCard({
   return (
     <Card className={cn(
       "flex flex-col rounded-xl shadow-lg transition-all duration-300 ease-in-out h-full border",
-      isPopular ? "border-primary bg-white ring-2 ring-primary scale-105" : "bg-white border-border hover:shadow-xl",
+      isPopular ? "border-primary bg-card ring-2 ring-primary scale-105" : "bg-card border-border hover:shadow-xl",
     )}>
       {isPopular && (
-        <div className="py-1.5 px-4 bg-app-green text-center text-xs font-semibold text-white rounded-t-lg -mb-px uppercase tracking-wider">
-          Most Popular
+        <div className="py-1.5 px-4 bg-primary text-center text-xs font-semibold text-primary-foreground rounded-t-lg -mb-px uppercase tracking-wider">
+          En Popüler
         </div>
       )}
       <CardHeader className="p-6 text-center">
@@ -43,9 +43,6 @@ export default function PricingCard({
           <span className="text-4xl font-extrabold text-foreground">{price}</span>
           {priceDescription && <span className="ml-1 text-base font-medium text-muted-foreground">{priceDescription}</span>}
         </div>
-        {/* <CardDescription className="mt-2 text-sm text-muted-foreground">
-          Perfect for {planName === 'Basic' ? 'individuals and small teams' : planName === 'Pro' ? 'growing businesses' : 'large enterprises'}.
-        </CardDescription> */}
       </CardHeader>
       <CardContent className="flex-1 p-6 pt-0">
         <ul className="space-y-3">
@@ -63,7 +60,7 @@ export default function PricingCard({
           size="lg" 
           className={cn(
             "w-full text-base font-semibold rounded-lg py-3",
-            isPopular ? "btn-primary-img" : "btn-secondary-img text-primary border-primary hover:bg-primary/10"
+            isPopular ? "btn-primary-assist" : "btn-secondary-assist"
           )}
         >
           <Link href={ctaLink}>{ctaText}</Link>

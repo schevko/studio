@@ -2,9 +2,9 @@
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react'; // Using Lucide Star for rating
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import React, { useState } from 'react'; // For basic carousel logic
+import React, { useState, useEffect } from 'react';
 
 interface Testimonial {
   id: number;
@@ -13,41 +13,47 @@ interface Testimonial {
   avatarUrl: string;
   feedback: string;
   rating: number;
-  companyLogoHint?: string; // For AI hint for company logo
+  companyLogoHint?: string;
 }
 
 const testimonialsData: Testimonial[] = [
   {
     id: 1,
-    name: 'Sarah L.',
-    role: 'Project Manager, Tech Solutions Inc.',
-    avatarUrl: 'https://picsum.photos/seed/avatar1/100/100',
-    feedback: "Craft has revolutionized how we manage projects. The real-time collaboration features and intuitive interface have significantly boosted our team's productivity. Highly recommended!",
+    name: 'Ayşe Y.',
+    role: 'Pazarlama Müdürü, TeknoÇözüm A.Ş.',
+    avatarUrl: 'https://picsum.photos/seed/avatarTR1/100/100',
+    feedback: "AssistoWeb, müşteri hizmetleri süreçlerimizi tamamen değiştirdi. Yapay zeka asistanları sayesinde yanıt sürelerimiz kısaldı ve müşteri memnuniyetimiz arttı. Kesinlikle tavsiye ederim!",
     rating: 5,
-    companyLogoHint: 'tech company logo',
+    companyLogoHint: 'teknoloji şirketi logo',
   },
   {
     id: 2,
-    name: 'John B.',
-    role: 'CEO, Creative Agency Co.',
-    avatarUrl: 'https://picsum.photos/seed/avatar2/100/100',
-    feedback: "We've tried several project management tools, and Craft stands out for its flexibility and comprehensive feature set. The customer support is also top-notch.",
+    name: 'Mehmet K.',
+    role: 'CEO, Yaratıcı Fikirler Ltd.',
+    avatarUrl: 'https://picsum.photos/seed/avatarTR2/100/100',
+    feedback: "Birçok otomasyon aracı denedik ancak AssistoWeb'in esnekliği ve kapsamlı özellikleri bizi etkiledi. Özellikle satış sonrası destekleri harika.",
     rating: 5,
-    companyLogoHint: 'creative agency logo',
+    companyLogoHint: 'yaratıcı ajans logo',
   },
   {
     id: 3,
-    name: 'Emily K.',
-    role: 'Startup Founder',
-    avatarUrl: 'https://picsum.photos/seed/avatar3/100/100',
-    feedback: "As a startup, we needed a tool that could scale with us. Craft's pricing is fair, and it offers all the functionalities we need to stay organized and hit our deadlines.",
+    name: 'Zeynep A.',
+    role: 'E-ticaret Girişimcisi',
+    avatarUrl: 'https://picsum.photos/seed/avatarTR3/100/100',
+    feedback: "Bir e-ticaret girişimi olarak, operasyonel yükümüzü azaltacak bir çözüme ihtiyacımız vardı. AssistoWeb'in sanal asistanları tam da aradığımız şeydi. Fiyatlandırması da çok uygun.",
     rating: 4,
-    companyLogoHint: 'startup logo',
+    companyLogoHint: 'e-ticaret logo',
   },
 ];
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(testimonialsData[0]);
+
+  useEffect(() => {
+    setCurrentTestimonial(testimonialsData[currentIndex]);
+  }, [currentIndex]);
+
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1));
@@ -57,18 +63,20 @@ export default function TestimonialsSection() {
     setCurrentIndex((prevIndex) => (prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1));
   };
 
-  const currentTestimonial = testimonialsData[currentIndex];
+  if (!currentTestimonial) {
+    return null; // Or a loading state
+  }
 
   return (
-    <section id="testimonials" className="section-padding bg-secondary/30">
+    <section id="testimonials" className="section-padding bg-card/50">
       <div className="container mx-auto max-w-4xl">
         <ScrollAnimationWrapper className="text-center mb-10">
-          <p className="section-title-sm">TESTIMONIALS</p>
-          <h2 className="section-title">Customers Feedback</h2>
+          <p className="section-title-sm text-primary">MÜŞTERİ YORUMLARI</p>
+          <h2 className="section-title">Müşterilerimiz Ne Diyor?</h2>
         </ScrollAnimationWrapper>
 
         <ScrollAnimationWrapper>
-          <Card className="p-6 sm:p-8 md:p-10 rounded-xl shadow-xl overflow-hidden">
+          <Card className="p-6 sm:p-8 md:p-10 rounded-xl shadow-xl overflow-hidden bg-card border-border">
             <CardContent className="p-0">
               <div className="flex flex-col items-center text-center">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 ring-4 ring-primary/20">
@@ -77,13 +85,9 @@ export default function TestimonialsSection() {
                     alt={currentTestimonial.name}
                     layout="fill"
                     objectFit="cover"
-                    data-ai-hint="person portrait"
+                    data-ai-hint="kişi portre"
                   />
                 </div>
-                {/* Optional Company Logo from Image - Placeholder */}
-                {/* <div className="relative w-12 h-12 mb-4 opacity-50">
-                  <Image src="https://picsum.photos/seed/companylogo/50/50" alt="Company Logo" layout="fill" data-ai-hint={currentTestimonial.companyLogoHint} />
-                </div> */}
                 
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 max-w-2xl">
                   "{currentTestimonial.feedback}"
@@ -94,7 +98,7 @@ export default function TestimonialsSection() {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${i < currentTestimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+                      className={`w-5 h-5 ${i < currentTestimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`} // Adjusted for dark theme
                     />
                   ))}
                 </div>

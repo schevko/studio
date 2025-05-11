@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"], // Keep class strategy if a future toggle is needed, but default to light.
+    darkMode: ["class"], // Keep class strategy if a future toggle is needed
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,13 +11,13 @@ export default {
   	extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'], // Default body font
-        display: ['var(--font-manrope)', 'sans-serif'], // Default heading font
+        display: ['var(--font-manrope)', 'sans-serif'], // Default heading font (Manrope as fallback for Cal Sans)
       },
   		colors: {
         border: 'hsl(var(--border))',
         input: {
-          DEFAULT: 'hsl(var(--input))', // Background of input
-          border: 'hsl(var(--input-border))', // Border of input
+          DEFAULT: 'hsl(var(--input))',
+          border: 'hsl(var(--input-border))', // Custom input border color from CSS vars
         },
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
@@ -50,13 +50,10 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // App specific colors from the image
-        'app-green': 'hsl(var(--app-green))',
-        'app-orange': 'hsl(var(--app-orange))',
-        'app-light-purple': 'hsl(var(--app-light-purple))',
-        'app-light-green': 'hsl(var(--app-light-green))',
-        'app-light-orange': 'hsl(var(--app-light-orange))',
-        'app-light-pink': 'hsl(var(--app-light-pink))',
+        // App specific colors (from CSS variables)
+        'app-dark-navy': 'hsl(var(--app-dark-navy))',
+        'app-gray': 'hsl(var(--app-gray))',
+        'app-neon-green': 'hsl(var(--app-neon-green))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -64,24 +61,13 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
         },
-        // Sidebar colors remain, though sidebar component might not be used in this new design.
-        // If not used, these can be cleaned up later.
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))', // These will need to be updated if sidebar is used
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))'
-        }
   		},
   		borderRadius: {
-  			lg: 'calc(var(--radius) + 4px)', // Image uses more rounded corners, e.g., 0.75rem if --radius is 0.5rem
-  			md: 'var(--radius)',
-  			sm: 'calc(var(--radius) - 2px)',
-        xl: 'calc(var(--radius) + 8px)', // For larger cards
+        // Consistent with --radius from globals.css
+        lg: 'var(--radius)', 
+        md: 'calc(var(--radius) - 2px)', // If --radius is 0.75rem, md is ~0.625rem
+        sm: 'calc(var(--radius) - 4px)', // If --radius is 0.75rem, sm is ~0.5rem
+        xl: 'calc(var(--radius) + 4px)', // For larger cards
         full: '9999px',
   		},
   		keyframes: {
@@ -98,17 +84,25 @@ export default {
           '100%': { opacity: '1' },
         },
         'fade-in-up': {
-          '0%': { opacity: '0', transform: 'translateY(10px)' }, /* Subtler Y transform */
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        // Removed gradientChange as it's not in the new design's hero
+        'gradient-shift': { // For Hero section animated gradient
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.5s ease-out forwards',
-        'fade-in-up': 'fade-in-up 0.5s ease-out forwards', // Shorter duration
-  		}
+        'fade-in': 'fade-in 0.7s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
+        'gradient-shift': 'gradient-shift 10s ease infinite',
+  		},
+      backgroundSize: {
+        '200%': '200% 200%', // For hero gradient animation
+      }
   	}
   },
   plugins: [require("tailwindcss-animate")],

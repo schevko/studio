@@ -5,25 +5,31 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90", // Neon green button
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent/10 hover:text-accent-foreground", // Adjusted hover for outline
+          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground", // General outline, can be customized further
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent/10 hover:text-accent-foreground", // Adjusted hover for ghost
+        ghost: "hover:bg-accent/20 hover:text-accent-foreground", // Subtle hover for ghost
         link: "text-primary underline-offset-4 hover:underline",
+        
+        // AssistoWeb specific variants based on globals.css btn- styles
+        primaryAssist: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg", // from btn-primary-assist
+        secondaryAssist: "bg-transparent text-primary border border-primary hover:bg-primary/10 shadow-sm hover:shadow-md", // from btn-secondary-assist
+        ghostAssist: "text-muted-foreground hover:text-foreground hover:bg-accent/10", // from btn-ghost-assist
+
       },
       size: {
-        default: "h-10 px-4 py-2 rounded-lg", // Image uses more rounded buttons, default to lg radius
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-lg px-8", // Image uses more rounded buttons, default to lg radius
-        icon: "h-10 w-10 rounded-lg", // Image uses more rounded buttons
+        default: "h-10 px-4 py-2", 
+        sm: "h-9 px-3",
+        lg: "h-11 px-8 text-base", // Adjusted for common CTA size
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {

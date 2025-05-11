@@ -22,19 +22,19 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactSubmission } from '@/app/contact/actions'; // Assuming action path is still valid
+import { handleContactSubmission } from '@/app/contact/actions';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  name: z.string().min(2, { message: 'Adınız en az 2 karakter olmalıdır.' }),
+  email: z.string().email({ message: 'Lütfen geçerli bir e-posta adresi girin.' }),
   company: z.string().optional(),
   inquiryType: z.enum(['demo', 'quote', 'sales', 'general'], {
-    required_error: 'Please select an inquiry type.',
+    required_error: 'Lütfen bir talep türü seçin.',
   }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }).max(1000),
+  message: z.string().min(10, { message: 'Mesajınız en az 10 karakter olmalıdır.' }).max(1000),
 });
 
 export type ContactFormValues = z.infer<typeof formSchema>;
@@ -57,25 +57,24 @@ export default function ContactForm() {
   async function onSubmit(values: ContactFormValues) {
     startTransition(async () => {
       try {
-        // Assuming handleContactSubmission is adapted or generic enough
         const result = await handleContactSubmission(values);
         if (result.success) {
           toast({
-            title: 'Message Sent!',
-            description: 'Thank you for contacting us. We will get back to you shortly.',
+            title: 'Mesaj Gönderildi!',
+            description: 'Bizimle iletişime geçtiğiniz için teşekkür ederiz. En kısa sürede size geri döneceğiz.',
           });
           form.reset();
         } else {
           toast({
-            title: 'Error',
-            description: result.error || 'Failed to send message. Please try again.',
+            title: 'Hata',
+            description: result.error || 'Mesaj gönderilemedi. Lütfen tekrar deneyin.',
             variant: 'destructive',
           });
         }
       } catch (error) {
         toast({
-          title: 'Error',
-          description: 'An unexpected error occurred. Please try again.',
+          title: 'Hata',
+          description: 'Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.',
           variant: 'destructive',
         });
       }
@@ -85,7 +84,7 @@ export default function ContactForm() {
   return (
     <Card className="shadow-xl bg-card border border-border rounded-xl">
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-foreground">Send us a Message</CardTitle>
+        <CardTitle className="text-2xl font-semibold text-foreground">Bize Mesaj Gönderin</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -95,9 +94,9 @@ export default function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Full Name</FormLabel>
+                  <FormLabel className="text-foreground/80">Adınız Soyadınız</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                    <Input placeholder="Ali Veli" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -108,9 +107,9 @@ export default function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Email Address</FormLabel>
+                  <FormLabel className="text-foreground/80">E-posta Adresiniz</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="john.doe@example.com" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                    <Input type="email" placeholder="ali.veli@example.com" {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -121,9 +120,9 @@ export default function ContactForm() {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Company (Optional)</FormLabel>
+                  <FormLabel className="text-foreground/80">Şirket (İsteğe Bağlı)</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your Company Inc." {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
+                    <Input placeholder="Şirket Adınız A.Ş." {...field} className="bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -134,18 +133,18 @@ export default function ContactForm() {
               name="inquiryType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Inquiry Type</FormLabel>
+                  <FormLabel className="text-foreground/80">Talep Türü</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg">
-                        <SelectValue placeholder="Select an inquiry type" />
+                        <SelectValue placeholder="Bir talep türü seçin" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-popover text-popover-foreground rounded-lg">
-                      <SelectItem value="demo">Request a Demo</SelectItem>
-                      <SelectItem value="quote">Get a Custom Quote</SelectItem>
-                      <SelectItem value="sales">Contact Sales</SelectItem>
-                      <SelectItem value="general">General Inquiry</SelectItem>
+                    <SelectContent className="bg-popover text-popover-foreground rounded-lg border-border">
+                      <SelectItem value="demo">Demo Talebi</SelectItem>
+                      <SelectItem value="quote">Özel Fiyat Teklifi</SelectItem>
+                      <SelectItem value="sales">Satış Ekibiyle İletişim</SelectItem>
+                      <SelectItem value="general">Genel Soru</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -157,10 +156,10 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-foreground/80">Message</FormLabel>
+                  <FormLabel className="text-foreground/80">Mesajınız</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Tell us more about your needs..."
+                      placeholder="İhtiyaçlarınız hakkında bize daha fazla bilgi verin..."
                       className="resize-none bg-input border-input-border text-foreground placeholder:text-muted-foreground rounded-lg"
                       rows={5}
                       {...field}
@@ -170,9 +169,9 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full btn-primary-img" disabled={isPending}>
+            <Button type="submit" className="w-full btn-primary-assist" disabled={isPending}>
               {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-              Send Message
+              Mesajı Gönder
             </Button>
           </form>
         </Form>

@@ -5,13 +5,21 @@ interface FeatureCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
+  iconColorClass?: string; // e.g. text-primary, text-app-neon-green
 }
 
-export default function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
+export default function FeatureCard({ 
+  icon: Icon, 
+  title, 
+  description,
+  iconColorClass = 'text-primary' // Default to primary theme color
+}: FeatureCardProps) {
   return (
-    <Card className="w-72 min-w-[280px] flex-shrink-0 snap-start bg-card/70 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300 border-border hover:border-accent/30">
-      <CardHeader className="flex flex-row items-center gap-3 pb-3">
-        <Icon className="h-7 w-7 text-accent" />
+    <Card className="w-full min-w-[280px] max-w-sm flex-shrink-0 snap-start bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300 border-border hover:border-primary/30 rounded-xl p-2">
+      <CardHeader className="flex flex-row items-center gap-4 pb-3">
+        <div className={`p-3 rounded-lg bg-primary/10`}>
+          <Icon className={`h-7 w-7 ${iconColorClass}`} />
+        </div>
         <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
       </CardHeader>
       <CardContent>

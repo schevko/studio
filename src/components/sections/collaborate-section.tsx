@@ -3,41 +3,41 @@ import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MessageSquare, Users, Share2 } from 'lucide-react';
+import { MessageSquare, Users, Share2, Bot } from 'lucide-react';
 
 export default function CollaborateSection() {
   const collaborationFeatures = [
     {
-      icon: MessageSquare,
-      title: 'Real-time Communication',
-      description: 'Discuss tasks, share feedback, and make decisions faster with integrated chat and comments.',
+      icon: Bot, // Changed to Bot icon
+      title: 'AI Destekli İşbirliği',
+      description: 'Sanal asistanlarınızla görevleri tartışın, geri bildirim paylaşın ve kararları hızla alın.',
     },
     {
       icon: Users,
-      title: 'Shared Workspaces',
-      description: 'Keep everyone on the same page with centralized project boards, files, and calendars.',
+      title: 'Merkezi Çalışma Alanları',
+      description: 'Projelerinizi, dosyalarınızı ve takvimlerinizi merkezi bir yerden yöneterek herkesi aynı sayfada tutun.',
     },
     {
       icon: Share2,
-      title: 'Seamless File Sharing',
-      description: 'Easily share documents, designs, and other project assets with version control.',
+      title: 'Kolay Dosya Paylaşımı',
+      description: 'Belgeleri, tasarımları ve diğer proje varlıklarını sürüm kontrolüyle kolayca paylaşın.',
     },
   ];
 
   return (
-    <section id="collaborate" className="section-padding bg-background">
+    <section id="collaborate" className="section-padding bg-card">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollAnimationWrapper className="lg:pr-8">
-            <p className="section-title-sm">TEAM COLLABORATION</p>
-            <h2 className="section-title mb-6">Work and Collaborate with Your Team</h2>
+            <p className="section-title-sm text-primary">EKİP İŞBİRLİĞİ</p>
+            <h2 className="section-title mb-6">Ekibinizle Çalışın ve İşbirliği Yapın</h2>
             <p className="section-subtitle mb-8">
-              Craft makes teamwork seamless. Bring your team together, streamline communication, and boost productivity with our powerful collaboration tools.
+              AssistoWeb, ekip çalışmasını kusursuz hale getirir. Ekibinizi bir araya getirin, iletişimi kolaylaştırın ve güçlü işbirliği araçlarımızla üretkenliği artırın.
             </p>
             <div className="space-y-6 mb-8">
               {collaborationFeatures.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-1">
+                  <div className="flex-shrink-0 mt-1 p-2 bg-primary/10 rounded-full">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -47,18 +47,19 @@ export default function CollaborateSection() {
                 </div>
               ))}
             </div>
-            <Button asChild size="lg" className="btn-primary-img">
-              <Link href="/signup">Try for free</Link>
+            <Button asChild size="lg" className="btn-primary-assist">
+              <Link href="/kayit">Ücretsiz Deneyin</Link>
             </Button>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <div className="relative aspect-[4/3] w-full max-w-xl mx-auto lg:max-w-none lg:mx-0 rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/collaboration/800/600"
-                alt="Team collaboration interface"
+                src="https://picsum.photos/seed/aiteamwork/800/600"
+                alt="Ekip işbirliği arayüzü"
                 layout="fill"
                 objectFit="cover"
-                data-ai-hint="team collaboration ui"
+                data-ai-hint="ai team collaboration"
+                className="transform transition-transform duration-500 hover:scale-105"
               />
             </div>
           </ScrollAnimationWrapper>

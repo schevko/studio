@@ -14,14 +14,13 @@ const inter = Inter({
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
-  weight: ['400', '500', '600', '700', '800'], // Added more weights if needed by new design
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Craft - Project Management Software Solutions',
-  description: 'Organize, track, and manage your projects efficiently with Craft.',
-  // Add keywords or other metadata if desired
+  title: 'AssistoWeb - Yapay Zeka Sanal Asistan Çözümleri',
+  description: 'AssistoWeb ile iş süreçlerinizi optimize edin, verimliliği artırın ve müşteri memnuniyetini en üst düzeye çıkarın. Yapay zeka destekli sanal asistanlarımızla tanışın.',
 };
 
 export default function RootLayout({
@@ -30,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className=""> {/* Removed "dark" class to default to light theme */}
+    <html lang="tr"> {/* Language set to Turkish */}
       <body className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
         <div className="flex flex-col min-h-screen page-fade-in">
           <Header />
