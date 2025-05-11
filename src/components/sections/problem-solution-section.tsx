@@ -52,16 +52,16 @@ export default function ProblemSolutionSection() {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper>
-            <Card className="bg-primary/10 shadow-xl border-primary/20 rounded-xl">
-              <CardHeader>
-                <div className="flex items-start gap-4"> 
-                  <div className="p-2 bg-primary/20 rounded-full inline-flex items-center justify-center"> 
-                    <Lightbulb className="h-7 w-7 text-primary" /> 
+            <Card className="bg-card shadow-xl border-2 border-primary rounded-xl">
+              <CardHeader className="p-6">
+                <div className="flex items-center gap-4"> 
+                  <div className="flex-shrink-0 p-3 bg-primary/10 rounded-full"> 
+                    <Lightbulb className="h-8 w-8 text-primary" /> 
                   </div>
-                  <CardTitle className="text-2xl lg:text-3xl font-bold text-primary mt-1">Assisto Farkı: Sorunlarınıza Entegre ve Ölçeklenebilir Çözümler</CardTitle>
+                  <CardTitle className="text-2xl lg:text-3xl font-bold text-primary">Assisto Farkı: Sorunlarınıza Entegre ve Ölçeklenebilir Çözümler</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent className="p-6"> 
+              <CardContent className="p-6 pt-4"> 
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   Assisto, bu boşluğu doldurmak için tasarlandı. İşletmelerin yapay zeka teknolojilerini kolayca, uygun maliyetle ve minimum teknik bilgiyle benimsemesini sağlayarak, dijital dönüşümün önündeki tüm engelleri kaldırıyoruz.
                 </p>
