@@ -135,12 +135,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Global Button Styles based on new theme */
 .btn-primary-softo {
-  @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-3 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out;
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out;
   /* Purple button */
 }
 
 .btn-secondary-softo {
-  @apply bg-transparent text-primary border border-primary hover:bg-primary/10 rounded-lg px-6 py-3 text-base font-semibold shadow-sm hover:shadow-md transition-all duration-300 ease-in-out;
+  @apply bg-transparent text-primary border border-primary hover:bg-primary/10 rounded-full px-6 py-3 text-base font-semibold shadow-sm hover:shadow-md transition-all duration-300 ease-in-out;
   /* Outline purple button */
 }
 
@@ -156,3 +156,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Removed animated-gradient-hero as it's not part of the new design */
+
+/* Animation for ProblemSolutionSection glow */
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(0.5deg); } /* Reduced rotation for subtlety */
+}
+.animate-tilt {
+  animation: tilt 15s infinite linear alternate; /* Slower and alternates direction */
+}
+
+/* Additional fade-in up animation for problem solution cards */
+.animate-fadeInUp {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
