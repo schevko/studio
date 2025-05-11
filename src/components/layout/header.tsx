@@ -18,10 +18,10 @@ const SoftoLogo = () => (
 
 
 const navLinks = [
-  { href: '/', label: 'Ana Sayfa' }, // Home
-  { href: '/company', label: 'Şirket' }, // Company
-  { href: '/contact', label: 'Bize Ulaşın' }, // Contact Us
-  { href: '/404', label: '404' }, // 404 - as per image
+  { href: '/', label: 'Ana Sayfa' },
+  { href: '/hakkimizda', label: 'Hakkımızda' },
+  { href: '/#features', label: 'Özellikler' },
+  { href: '/contact', label: 'İletişim' },
 ];
 
 export default function Header() {
@@ -33,12 +33,18 @@ export default function Header() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call on mount to set initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
 
   const NavLinkItem = ({ href, label }: { href: string; label: string }) => {
-    const isActive = pathname === href;
+    // For anchor links on the same page, isActive should be true if pathname is '/' and hash matches.
+    // For other links, it's a direct pathname match.
+    const isActive = href.startsWith('/#') 
+      ? pathname === '/' && typeof window !== 'undefined' && window.location.hash === href.substring(1)
+      : pathname === href;
+      
     return (
       <Link
         href={href}
@@ -57,11 +63,11 @@ export default function Header() {
 
   return (
     <div className={cn(
-        "sticky top-0 z-50 w-full py-3 transition-all duration-300",
-        isScrolled ? "pt-3" : "pt-6" // Add top margin when not scrolled
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        isScrolled ? "py-3" : "py-6" 
       )}>
       <header className={cn(
-        "container mx-auto max-w-6xl flex h-14 items-center justify-between px-6 rounded-full border transition-all duration-300",
+        "container mx-auto max-w-6xl flex h-14 items-center justify-between px-4 sm:px-6 rounded-full border transition-all duration-300",
         isScrolled ? "bg-card/80 backdrop-blur-md shadow-lg border-border" : "bg-transparent border-transparent shadow-none"
       )}>
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
@@ -77,7 +83,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <Button asChild className="hidden sm:inline-flex btn-primary-softo px-5 py-2.5 text-sm">
-            <Link href="/get-template">Şablonu Alın</Link>
+            <Link href="/kayit">Hemen Deneyin</Link>
           </Button>
           <div className="md:hidden">
             <Sheet>
@@ -101,7 +107,7 @@ export default function Header() {
                       href={link.href}
                       className={cn(
                         'block px-3 py-2 rounded-md text-base font-medium transition-colors',
-                         pathname === link.href
+                         (link.href.startsWith('/#') ? pathname === '/' && typeof window !== 'undefined' && window.location.hash === link.href.substring(1) : pathname === link.href)
                           ? 'bg-primary/10 text-primary font-semibold'
                           : 'text-muted-foreground hover:text-foreground hover:bg-secondary/20'
                       )}
@@ -110,7 +116,7 @@ export default function Header() {
                     </Link>
                   ))}
                   <Button asChild className="w-full btn-primary-softo mt-4">
-                      <Link href="/get-template">Şablonu Alın</Link>
+                      <Link href="/kayit">Hemen Deneyin</Link>
                   </Button>
                 </nav>
               </SheetContent>
