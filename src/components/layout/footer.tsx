@@ -1,17 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Youtube, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import AssistoFullLogo from '@/components/brand/assisto-full-logo';
 
-// Inline SVG for Assisto logo
-const AssistoLogoFooter = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 10L12.5 85H87.5L50 10Z" fill="hsl(var(--primary))" transform="rotate(180 50 47.5)" />
-    <path d="M45.468 43.439L20.75 85H40.13L50 67.745L59.87 85H79.25L54.532 43.439C53.032 40.939 51.011 39.004 48.587 38.032L50 10L45.468 43.439Z" fill="hsl(var(--primary))"/>
-    <circle cx="50" cy="22" r="7" fill="#84CC16" stroke="hsl(var(--card))" strokeWidth="1.5"/> 
-    <circle cx="26" cy="78" r="7" fill="#3B82F6" stroke="hsl(var(--card))" strokeWidth="1.5"/> 
-    <circle cx="74" cy="78" r="7" fill="#A855F7" stroke="hsl(var(--card))" strokeWidth="1.5"/>
-  </svg>
-);
 
 const AppleStoreIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -65,9 +56,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo & Description */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2 pr-8">
-            <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-foreground mb-3">
-              <AssistoLogoFooter />
-              <span>Assisto</span>
+            <Link href="/" className="flex items-center text-2xl font-bold mb-3">
+               <AssistoFullLogo height="28" mainColorClass="text-primary" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
               Proje yönetimi süreçlerinizi optimize edin ve verimliliği artırın.
