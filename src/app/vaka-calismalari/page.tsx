@@ -2,12 +2,12 @@ import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 import CaseStudyShowcaseCard from '@/components/cards/case-study-showcase-card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ShoppingCart, Truck, Banknote } from 'lucide-react'; // Example icons
+import type { LucideIconNames } from '@/components/cards/case-study-showcase-card'; // Assuming this type will be exported
 
-const caseStudies = [
+const caseStudies: Array<Omit<React.ComponentProps<typeof CaseStudyShowcaseCard>, 'icon'> & { iconName: LucideIconNames }> = [
   {
     title: "E-Ticaret Firması: Müşteri Hizmetlerinde Devrim",
-    icon: ShoppingCart,
+    iconName: "ShoppingCart",
     problem: "Yüksek müşteri hizmetleri maliyetleri ve artan müşteri talepleri nedeniyle düşen memnuniyet.",
     solution: "Assisto'nun Müşteri Destek Ajanı, firmanın web sitesine ve sosyal medya kanallarına entegre edilerek 7/24 otomatik yanıt ve kişiselleştirilmiş destek sağladı.",
     results: [
@@ -24,7 +24,7 @@ const caseStudies = [
   },
   {
     title: "Lojistik Şirketi: Tedarik Zinciri Optimizasyonu",
-    icon: Truck,
+    iconName: "Truck",
     problem: "Karmaşık tedarik zinciri süreçleri, gecikmeler ve yüksek operasyonel maliyetler.",
     solution: "Assisto'nun Tedarik Zinciri Optimizasyon Ajanı, rota planlama, envanter takibi ve teslimat süreçlerini otomatikleştirerek verimliliği artırdı.",
     results: [
@@ -41,7 +41,7 @@ const caseStudies = [
   },
   {
     title: "Finans Kuruluşu: Finansal Analizde Doğruluk",
-    icon: Banknote,
+    iconName: "Banknote",
     problem: "Manuel finansal analiz süreçlerinin yavaşlığı ve hata payının yüksek olması.",
     solution: "Assisto'nun Finansal Analiz Ajanı, büyük veri setlerini hızla işleyerek doğru ve zamanında raporlar oluşturdu, risk değerlendirmesini iyileştirdi.",
     results: [

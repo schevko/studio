@@ -1,14 +1,18 @@
 'use client';
-import type { LucideIcon } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import type { LucideProps } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 
+// Define a type for valid Lucide icon names
+export type LucideIconNames = keyof typeof LucideIcons;
+
 interface CaseStudyShowcaseCardProps {
   title: string;
-  icon: LucideIcon;
+  iconName: LucideIconNames; // Changed from icon: LucideIcon to iconName: string
   problem: string;
   solution: string;
   results: string[];
@@ -22,7 +26,7 @@ interface CaseStudyShowcaseCardProps {
 
 export default function CaseStudyShowcaseCard({
   title,
-  icon: Icon,
+  iconName,
   problem,
   solution,
   results,
@@ -33,6 +37,8 @@ export default function CaseStudyShowcaseCard({
   imageHint,
   detailsLink,
 }: CaseStudyShowcaseCardProps) {
+  const IconComponent = LucideIcons[iconName] as React.FC<LucideProps>;
+
   return (
     <Card className="w-full overflow-hidden shadow-xl bg-card border border-border rounded-xl flex flex-col md:flex-row">
       <div className="md:w-2/5 relative min-h-[250px] md:min-h-full">
@@ -49,7 +55,7 @@ export default function CaseStudyShowcaseCard({
         <CardHeader className="p-6">
           <div className="flex items-start gap-3 mb-2">
             <div className="p-2 bg-primary/10 rounded-md">
-              <Icon className="h-7 w-7 text-primary" />
+              {IconComponent ? <IconComponent className="h-7 w-7 text-primary" /> : <LucideIcons.HelpCircle className="h-7 w-7 text-primary" /> }
             </div>
             <CardTitle className="text-xl lg:text-2xl font-bold text-foreground">{title}</CardTitle>
           </div>
