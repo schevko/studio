@@ -155,16 +155,19 @@ h1, h2, h3, h4, h5, h6 {
   --font-geist-mono: "";
 }
 
-/* Removed animated-gradient-hero as it's not part of the new design */
-
 /* Animation for ProblemSolutionSection glow */
 @keyframes tilt {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(0.5deg); } /* Reduced rotation for subtlety */
+  0%, 100% { 
+    transform: rotate(-0.25deg) scale(1.01); /* Start with slight inward tilt */
+  }
+  50% { 
+    transform: rotate(0.25deg) scale(1.015); /* Tilt other way and slightly larger */
+  }
 }
 .animate-tilt {
-  animation: tilt 15s infinite linear alternate; /* Slower and alternates direction */
+  animation: tilt 10s infinite linear alternate; /* Slower and alternates direction */
 }
+
 
 /* Additional fade-in up animation for problem solution cards */
 .animate-fadeInUp {
