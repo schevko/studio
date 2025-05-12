@@ -56,9 +56,9 @@ export default function Header() {
         href={href}
         className={cn(
           // Common styles
-          'text-sm font-medium transition-colors block w-full text-left', 
+          'text-sm font-medium transition-colors block w-full text-left',
           // Conditional padding: Use DropdownMenuItem's padding if it's a dropdown item
-          !isDropdownItem && 'px-3 py-2 rounded-md', 
+          !isDropdownItem && 'px-3 py-2 rounded-md',
           // Active/inactive styles
           isActive
             ? 'text-primary font-semibold'
@@ -70,7 +70,7 @@ export default function Header() {
       </Link>
     );
   };
-  
+
   // Reusable NavLink component for mobile navigation
   const MobileNavLinkItem = ({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) => {
     const isActive = pathname === href;
@@ -97,24 +97,24 @@ export default function Header() {
     <div className={cn(
         // Sticky container with padding transition based on scroll
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "pt-2 pb-2" : "pt-4 pb-2" // Adjust padding top/bottom on scroll
+        isScrolled ? "pt-4 pb-4" : "pt-6 pb-4" // Increased top/bottom padding
       )}>
       <header className={cn(
         // Actual header bar: centered, rounded, with transitions
         "container mx-auto max-w-6xl flex h-14 items-center justify-between px-4 sm:px-6 rounded-full border transition-all duration-300",
-        isScrolled 
-          ? "bg-card/90 backdrop-blur-lg shadow-xl border-border/70" 
+        isScrolled
+          ? "bg-card/90 backdrop-blur-lg shadow-xl border-border/70"
           : "bg-transparent border-transparent shadow-none" // Transparent when not scrolled
       )}>
         {/* Logo */}
-        <Link href="/" className="flex items-center text-xl font-bold mr-4 shrink-0">
-          <AssistoFullLogo height="28" mainColorClass="text-foreground" /> 
+        <Link href="/" className="flex items-center text-xl font-bold shrink-0"> {/* Removed mr-4 */}
+           <AssistoFullLogo height="28" mainColorClass="text-foreground" />
         </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+
+        {/* Desktop Navigation - Centered */}
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 mx-auto"> {/* Added mx-auto to center */}
           {/* Main links before dropdown */}
-          {mainNavLinks.slice(0,1).map((link) => ( 
+          {mainNavLinks.slice(0,1).map((link) => (
             <NavLinkItem key={link.href} href={link.href} label={link.label} />
           ))}
 
@@ -126,24 +126,24 @@ export default function Header() {
               </Button>
             </DropdownMenuTrigger>
             {/* Dropdown Content: Styled for vertical layout */}
-            <DropdownMenuContent className="w-56 bg-popover border-border shadow-lg rounded-xl p-1"> 
+            <DropdownMenuContent className="w-56 bg-popover border-border shadow-lg rounded-xl p-1">
               {dropdownNavLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild className="p-0 cursor-pointer">
+                <DropdownMenuItem key={link.href} asChild className="p-0 cursor-pointer my-1"> {/* Increased vertical margin */}
                   {/* Use NavLinkItem, indicating it's inside a dropdown */}
-                  <NavLinkItem href={link.href} label={link.label} isDropdownItem={true} /> 
+                  <NavLinkItem href={link.href} label={link.label} isDropdownItem={true} />
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          
+
           {/* Main links after dropdown */}
-          {mainNavLinks.slice(1).map((link) => ( 
+          {mainNavLinks.slice(1).map((link) => (
              <NavLinkItem key={link.href} href={link.href} label={link.label} />
           ))}
         </nav>
 
         {/* CTA Button and Mobile Menu Trigger */}
-        <div className="flex items-center gap-2 ml-auto"> {/* Use ml-auto to push to the right */}
+        <div className="flex items-center gap-2"> {/* Removed ml-auto */}
           <Button asChild className="hidden sm:inline-flex btn-primary-softo px-6 py-2.5 text-sm rounded-full">
             <Link href="/kayit">Hemen Deneyin</Link>
           </Button>
@@ -166,10 +166,10 @@ export default function Header() {
                 {/* Mobile Menu Navigation */}
                 <nav className="flex flex-col space-y-2">
                   {/* Main links */}
-                  {mainNavLinks.slice(0,1).map((link) => ( 
+                  {mainNavLinks.slice(0,1).map((link) => (
                     <MobileNavLinkItem key={link.href} href={link.href} label={link.label} onClick={() => setMobileMenuOpen(false)} />
                   ))}
-                  
+
                   {/* Dropdown section */}
                   <p className="px-3 pt-3 pb-1 text-sm font-semibold text-muted-foreground">Detaylar</p>
                   <div className="flex flex-col space-y-1">
@@ -177,9 +177,9 @@ export default function Header() {
                        <MobileNavLinkItem key={link.href} href={link.href} label={link.label} onClick={() => setMobileMenuOpen(false)} />
                     ))}
                   </div>
-                  
+
                   {/* Rest of main links */}
-                  {mainNavLinks.slice(1).map((link) => ( 
+                  {mainNavLinks.slice(1).map((link) => (
                     <MobileNavLinkItem key={link.href} href={link.href} label={link.label} onClick={() => setMobileMenuOpen(false)} />
                   ))}
                   {/* Mobile CTA */}
