@@ -10,36 +10,24 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 section-padding"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 section-padding aurora-background" // Added aurora-background class
     >
-       {/* Optional: Subtle background pattern or gradient if desired */}
-       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/10 -z-10"></div>
-       <div className="absolute inset-0 opacity-50 -z-20">
-        <Image 
-            src="https://picsum.photos/seed/aiworld/1920/1080" // Placeholder, update with AI-themed visual
-            alt="Yapay zeka arka planı" 
-            layout="fill" 
-            objectFit="cover"
-            data-ai-hint="yapay zeka iş dünyası"
-            priority
-        />
-       </div>
-
+       {/* Removed static background image and gradient div */}
 
       <div className="container mx-auto max-w-5xl z-10 text-center">
-        <ScrollAnimationWrapper animationClassName="fade-in-up">
+        <ScrollAnimationWrapper animationClassName="animate-fadeInUp"> {/* Use fadeInUp animation */}
           <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             İşletmenizin Geleceği Artık Sanal: <span className="text-primary">Assisto</span> ile Yapay Zeka Destekli Dönüşüm!
           </h1>
         </ScrollAnimationWrapper>
 
-        <ScrollAnimationWrapper animationClassName="fade-in-up" className="mt-6" style={{ animationDelay: '0.1s' }}>
+        <ScrollAnimationWrapper animationClassName="animate-fadeInUp" className="mt-6" style={{ animationDelay: '0.1s' }}> {/* Use fadeInUp animation */}
           <p className="section-subtitle max-w-3xl mx-auto text-lg sm:text-xl">
             Assisto, yapay zeka tabanlı sanal çalışanlar sunan yenilikçi SaaS platformuyla operasyonel verimliliğinizi artırır, maliyetlerinizi optimize eder ve rekabet avantajı sağlar.
           </p>
         </ScrollAnimationWrapper>
         
-        <ScrollAnimationWrapper animationClassName="fade-in-up" className="mt-10" style={{ animationDelay: '0.2s' }}>
+        <ScrollAnimationWrapper animationClassName="animate-fadeInUp" className="mt-10" style={{ animationDelay: '0.2s' }}> {/* Use fadeInUp animation */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button asChild size="lg" className="btn-primary-softo shadow-lg transform hover:scale-105 px-8 py-4 text-lg rounded-full">
               <Link href="/solutions"> 
