@@ -1,30 +1,28 @@
 import type { LucideIcon } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card } from '@/components/ui/card'; // Removed CardHeader, CardContent, CardTitle as they are not used directly
 
 interface FeatureCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  iconColorClass?: string; // e.g. text-primary, text-app-neon-green
+  iconColorClass?: string; // e.g. text-primary
 }
 
 export default function FeatureCard({ 
   icon: Icon, 
   title, 
   description,
-  iconColorClass = 'text-primary' // Default to primary theme color
+  iconColorClass = 'text-primary' 
 }: FeatureCardProps) {
   return (
-    <Card className="w-full min-w-[280px] max-w-sm flex-shrink-0 snap-start bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300 border-border hover:border-primary/30 rounded-xl p-2">
-      <CardHeader className="flex flex-row items-center gap-4 pb-3">
-        <div className={`p-3 rounded-lg bg-primary/10`}>
-          <Icon className={`h-7 w-7 ${iconColorClass}`} />
+    <Card className="w-full h-full flex flex-col text-left p-6 bg-card shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out border border-border hover:border-primary/40 rounded-xl group transform hover:-translate-y-1">
+      <div className="mb-5"> {/* Icon container */}
+        <div className={`inline-flex p-3.5 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 ease-in-out`}>
+          <Icon className={`h-8 w-8 ${iconColorClass} transition-transform duration-300 ease-in-out group-hover:scale-110`} />
         </div>
-        <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground">{description}</p>
-      </CardContent>
+      </div>
+      <h3 className="text-xl font-semibold text-foreground mb-2.5">{title}</h3>
+      <p className="text-sm text-muted-foreground flex-grow">{description}</p>
     </Card>
   );
 }

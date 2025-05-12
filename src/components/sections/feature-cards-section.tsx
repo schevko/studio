@@ -1,11 +1,11 @@
 'use client';
 import FeatureCard from '@/components/cards/feature-card';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import { Zap, DollarSign, Users, Award, TrendingUp, ShieldCheck, Settings, BarChartHorizontalBig } from 'lucide-react';
+import { TrendingUp, DollarSign, Users, Award } from 'lucide-react';
 
 const benefits = [
   {
-    icon: TrendingUp, // Represents increase/growth
+    icon: TrendingUp,
     title: 'Operasyonel Verimlilikte Artış',
     description: 'Tekrarlayan görevleri otomatikleştirin, insan hatasını azaltın ve süreçlerinizi hızlandırın.',
     iconColorClass: 'text-primary',
@@ -17,13 +17,13 @@ const benefits = [
     iconColorClass: 'text-primary',
   },
   {
-    icon: Users, // Represents team/people
+    icon: Users,
     title: 'İnsan Kaynağını Güçlendirme',
     description: 'Çalışanlarınızın monoton işlerden kurtularak stratejik ve yaratıcı görevlere odaklanmasını sağlayın.',
     iconColorClass: 'text-primary',
   },
   {
-    icon: Award, // Represents advantage/leadership
+    icon: Award,
     title: 'Sürdürülebilir Rekabet Avantajı',
     description: 'Özelleştirilmiş yapay zeka çözümleriyle pazar liderliğinizi güçlendirin ve geleceğe hazır olun.',
     iconColorClass: 'text-primary',
@@ -44,9 +44,9 @@ export default function FeatureCardsSection() {
 
         <ScrollAnimationWrapper>
           <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {benefits.map((benefit, index) => (
-                <div key={index} className="w-full">
+                <div key={index} className="w-full flex"> {/* Added flex to make child h-full work effectively */}
                    <FeatureCard {...benefit} />
                 </div>
               ))}
