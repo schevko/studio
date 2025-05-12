@@ -57,8 +57,8 @@ export default function Header() {
         className={cn(
           // Common styles
           'text-sm font-medium transition-colors block w-full text-left',
-          // Conditional padding: Use DropdownMenuItem's padding if it's a dropdown item
-          'px-3 py-2 rounded-md',
+          // Use default DropdownMenuItem padding if it's used there
+          'px-3 py-2 rounded-md', // Standard padding
           // Active/inactive styles
           isActive
             ? 'text-primary font-semibold'
@@ -107,12 +107,12 @@ export default function Header() {
           : "bg-transparent border-transparent shadow-none" // Transparent when not scrolled
       )}>
         {/* Logo */}
-        <Link href="/" className="flex items-center text-xl font-bold shrink-0"> {/* Removed mr-4 */}
+        <Link href="/" className="flex items-center text-xl font-bold shrink-0">
            <AssistoFullLogo height="28" mainColorClass="text-foreground" />
         </Link>
 
         {/* Desktop Navigation - Centered */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-2 mx-auto"> {/* Added mx-auto to center */}
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-2 mx-auto">
           {/* Main links before dropdown */}
           {mainNavLinks.slice(0,1).map((link) => (
             <NavLinkItem key={link.href} href={link.href} label={link.label} />
@@ -128,17 +128,18 @@ export default function Header() {
             {/* Dropdown Content: Styled for vertical layout */}
             <DropdownMenuContent className="w-56 bg-popover border-border shadow-lg rounded-xl p-1">
               {dropdownNavLinks.map((link) => (
-                 // Pass Link directly as the child when using asChild
-                <DropdownMenuItem key={link.href} asChild className="p-0 cursor-pointer my-[6px]"> {/* Increased vertical margin further */}
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      'text-sm font-medium transition-colors block w-full text-left px-3 py-2 rounded-md', // Re-apply styles from NavLinkItem
-                      pathname === link.href ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
-                    )}
-                    aria-current={pathname === link.href ? 'page' : undefined}
-                  >{link.label}</Link>
-                </DropdownMenuItem>
+                 // Use DropdownMenuItem with asChild, apply only margin and cursor overrides
+                 // Rely on DropdownMenuItem's internal padding and focus styles
+                 <DropdownMenuItem key={link.href} asChild className="my-[6px] cursor-pointer">
+                   <Link
+                     href={link.href}
+                     className={cn(
+                       // Apply only link-specific text styling here
+                       pathname === link.href ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+                     )}
+                     aria-current={pathname === link.href ? 'page' : undefined}
+                   >{link.label}</Link>
+                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -150,7 +151,7 @@ export default function Header() {
         </nav>
 
         {/* CTA Button and Mobile Menu Trigger */}
-        <div className="flex items-center gap-2"> {/* Removed ml-auto */}
+        <div className="flex items-center gap-2">
           <Button asChild className="hidden sm:inline-flex btn-primary-softo px-6 py-2.5 text-sm rounded-full">
             <Link href="/kayit">Hemen Deneyin</Link>
           </Button>
