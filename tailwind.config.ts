@@ -82,17 +82,36 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'marquee-to-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-to-right': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.7s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
+        'marquee-to-left': 'marquee-to-left 80s linear infinite', // Adjusted duration
+        'marquee-to-right': 'marquee-to-right 80s linear infinite', // Adjusted duration
   		},
       backgroundSize: {
         '200%': '200% 200%',
       }
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        '.pause-animation': {
+          'animation-play-state': 'paused',
+        },
+      });
+    },
+  ],
 } satisfies Config;

@@ -182,3 +182,71 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
   }
 }
+
+/* Marquee Animations */
+@keyframes marquee-to-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Assumes content is duplicated once */
+}
+
+@keyframes marquee-to-right {
+  0% { transform: translateX(-50%); } /* Assumes content is duplicated once */
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-to-left {
+  animation: marquee-to-left 60s linear infinite;
+}
+
+.animate-marquee-to-right {
+  animation: marquee-to-right 60s linear infinite;
+}
+
+/*
+  The following lines were removed as they were causing a CSS syntax error.
+  The `group-hover:pause-animation` functionality is handled by Tailwind's JIT compiler
+  when the `pause-animation` utility (defined in tailwind.config.ts) is used with the `group-hover` variant in HTML.
+*/
+/* Pause animation on hover for group */
+/*
+.group:hover .group-hover\\:pause-animation {
+  animation-play-state: paused;
+}
+*/
+
+.file\:mr-3::file-selector-button {
+    margin-right: 0.75rem;
+}
+.file\:py-2::file-selector-button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.file\:px-4::file-selector-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.file\:rounded-l-md::file-selector-button {
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+.file\:border-0::file-selector-button {
+    border-width: 0;
+}
+.file\:text-sm::file-selector-button {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+.file\:font-semibold::file-selector-button {
+    font-weight: 600;
+}
+.file\:bg-primary\/10::file-selector-button {
+    background-color: hsla(var(--primary), 0.1);
+}
+
+.hover\:file\:bg-primary\/20:hover::file-selector-button {
+     background-color: hsla(var(--primary), 0.2);
+}
+
+.file\:text-primary::file-selector-button {
+    color: hsl(var(--primary));
+}
