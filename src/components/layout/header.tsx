@@ -49,7 +49,7 @@ export default function Header() {
   }, []);
 
   // Reusable NavLink component for main navigation
-  const NavLinkItem = ({ href, label, isDropdownItem = false }: { href: string; label: string; isDropdownItem?: boolean }) => {
+  const NavLinkItem = ({ href, label }: { href: string; label: string }) => {
     const isActive = pathname === href;
     return (
       <Link
@@ -58,7 +58,7 @@ export default function Header() {
           // Common styles
           'text-sm font-medium transition-colors block w-full text-left',
           // Conditional padding: Use DropdownMenuItem's padding if it's a dropdown item
-          !isDropdownItem && 'px-3 py-2 rounded-md',
+          'px-3 py-2 rounded-md',
           // Active/inactive styles
           isActive
             ? 'text-primary font-semibold'
@@ -97,7 +97,7 @@ export default function Header() {
     <div className={cn(
         // Sticky container with padding transition based on scroll
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "pt-4 pb-4" : "pt-6 pb-4" // Increased top/bottom padding
+        isScrolled ? "pt-4 pb-4" : "pt-6 pb-6" // Increased bottom padding further
       )}>
       <header className={cn(
         // Actual header bar: centered, rounded, with transitions
@@ -112,7 +112,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation - Centered */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 mx-auto"> {/* Added mx-auto to center */}
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-2 mx-auto"> {/* Added mx-auto to center */}
           {/* Main links before dropdown */}
           {mainNavLinks.slice(0,1).map((link) => (
             <NavLinkItem key={link.href} href={link.href} label={link.label} />
@@ -128,9 +128,16 @@ export default function Header() {
             {/* Dropdown Content: Styled for vertical layout */}
             <DropdownMenuContent className="w-56 bg-popover border-border shadow-lg rounded-xl p-1">
               {dropdownNavLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild className="p-0 cursor-pointer my-1"> {/* Increased vertical margin */}
-                  {/* Use NavLinkItem, indicating it's inside a dropdown */}
-                  <NavLinkItem href={link.href} label={link.label} isDropdownItem={true} />
+                 // Pass Link directly as the child when using asChild
+                <DropdownMenuItem key={link.href} asChild className="p-0 cursor-pointer my-[6px]"> {/* Increased vertical margin further */}
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      'text-sm font-medium transition-colors block w-full text-left px-3 py-2 rounded-md', // Re-apply styles from NavLinkItem
+                      pathname === link.href ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+                    )}
+                    aria-current={pathname === link.href ? 'page' : undefined}
+                  >{link.label}</Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
