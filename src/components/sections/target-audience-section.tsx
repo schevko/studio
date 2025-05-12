@@ -1,10 +1,11 @@
-'use client';
+                            'use client';
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 import { Card, CardContent } from '@/components/ui/card';
 import { 
   ShoppingCart, Landmark, HeartPulse, Truck, Factory, LucideIcon,
-  Cpu, BookOpen, Plane, HomeIcon, Film, Zap, Leaf, Scale, Briefcase, Shield, Store
-} from 'lucide-react';
+  Cpu, BookOpen, Plane, HomeIcon, Film, Zap, Leaf, Scale, Briefcase, Shield as ShieldIcon, Store,
+  Signal, Car, Building, ConciergeBell, Megaphone, Gamepad2, Utensils, Rocket, Palette, Umbrella
+} from 'lucide-react'; // Shield renamed to ShieldIcon to avoid conflict
 
 interface Sector {
   name: string;
@@ -27,12 +28,23 @@ const allSectors: Sector[] = [
   { name: 'Tarım', icon: Leaf, colorClass: 'text-primary' },
   { name: 'Hukuk', icon: Scale, colorClass: 'text-primary' },
   { name: 'Danışmanlık', icon: Briefcase, colorClass: 'text-primary' },
-  { name: 'Kamu', icon: Shield, colorClass: 'text-primary' },
+  { name: 'Kamu Sektörü', icon: ShieldIcon, colorClass: 'text-primary' },
   { name: 'Perakende', icon: Store, colorClass: 'text-primary' },
+  { name: 'Telekomünikasyon', icon: Signal, colorClass: 'text-primary' },
+  { name: 'Otomotiv', icon: Car, colorClass: 'text-primary' },
+  { name: 'İnşaat', icon: Building, colorClass: 'text-primary' },
+  { name: 'Hizmet Sektörü', icon: ConciergeBell, colorClass: 'text-primary' },
+  { name: 'Pazarlama & Reklam', icon: Megaphone, colorClass: 'text-primary' },
+  { name: 'Spor & Eğlence', icon: Gamepad2, colorClass: 'text-primary' },
+  { name: 'Yiyecek & İçecek', icon: Utensils, colorClass: 'text-primary' },
+  { name: 'Havacılık & Uzay', icon: Rocket, colorClass: 'text-primary' },
+  { name: 'Sanat & Tasarım', icon: Palette, colorClass: 'text-primary' },
+  { name: 'Sigortacılık', icon: Umbrella, colorClass: 'text-primary' },
 ];
 
-const topRowSectors = allSectors.slice(0, 8); // E-ticaret, Finans, Sağlık, Lojistik, Üretim, Teknoloji, Eğitim, Turizm
-const bottomRowSectors = allSectors.slice(8); // Gayrimenkul, Medya, Enerji, Tarım, Hukuk, Danışmanlık, Kamu, Perakende
+const halfLength = Math.ceil(allSectors.length / 2);
+const topRowSectors = allSectors.slice(0, halfLength);
+const bottomRowSectors = allSectors.slice(halfLength);
 
 const SectorCard = ({ sector }: { sector: Sector }) => (
   <Card className="group text-center p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-border hover:border-primary/30 transform hover:-translate-y-1 min-w-[180px] sm:min-w-[220px] bg-card">
