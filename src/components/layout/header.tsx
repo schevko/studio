@@ -105,7 +105,7 @@ export default function Header() {
         isScrolled
           ? "bg-card/90 backdrop-blur-lg shadow-xl border-border/70"
           : "bg-transparent border-transparent shadow-none" // Transparent when not scrolled
-      )}>
+      )}> 
         {/* Logo */}
         <Link href="/" className="flex items-center text-xl font-bold shrink-0">
            <AssistoFullLogo height="28" mainColorClass="text-foreground" />
