@@ -10,10 +10,10 @@ const agentCategories = [
     categoryIcon: "MessageSquare",
     categoryDescription: "Müşterilerinizle etkileşiminizi yeniden tanımlayın. Müşteri deneyimi ajanlarımız, 7/24 kesintisiz destek sunarak müşteri memnuniyetini en üst seviyeye taşır.",
     agentTypes: [
-      { name: "24/7 Müşteri Destek Ajanı", icon: HelpCircle },
-      { name: "Sosyal Medya Yönetim Ajanı", icon: Users },
-      { name: "İçerik Üretim ve Pazarlama Ajanı", icon: Brain },
-      { name: "Satış Destek Ajanı", icon: ShoppingBag },
+      { name: "24/7 Müşteri Destek Ajanı", icon: "HelpCircle" },
+      { name: "Sosyal Medya Yönetim Ajanı", icon: "Users" },
+      { name: "İçerik Üretim ve Pazarlama Ajanı", icon: "Brain" },
+      { name: "Satış Destek Ajanı", icon: "ShoppingBag" },
     ],
     caseStudy: {
       title: "Müşteri Destek Ajanı: Gerçek Bir Başarı Hikayesi",
@@ -31,10 +31,10 @@ const agentCategories = [
     categoryIcon: "Zap",
     categoryDescription: "Operasyonel ajanlarımız, tekrarlayan görevleri otomatikleştirerek ve süreçlerinizi optimize ederek işletmenizin daha hızlı, daha akıllı ve daha verimli çalışmasını sağlar.",
     agentTypes: [
-      { name: "Tedarik Zinciri Optimizasyon Ajanı", icon: Truck },
-      { name: "Envanter Yönetim Ajanı", icon: Factory },
-      { name: "Kalite Kontrol Ajanı", icon: ShieldCheck },
-      { name: "İş Akışı Otomasyon Ajanı", icon: Settings },
+      { name: "Tedarik Zinciri Optimizasyon Ajanı", icon: "Truck" },
+      { name: "Envanter Yönetim Ajanı", icon: "Factory" },
+      { name: "Kalite Kontrol Ajanı", icon: "ShieldCheck" },
+      { name: "İş Akışı Otomasyon Ajanı", icon: "Settings" },
     ]
   },
   {
@@ -42,10 +42,10 @@ const agentCategories = [
     categoryIcon: "BarChart3",
     categoryDescription: "Stratejik analiz ajanlarımızla, büyük veri setlerini hızla işleyerek pazar eğilimlerini, rekabet koşullarını ve finansal performansınızı derinlemesine anlayın.",
     agentTypes: [
-      { name: "Finansal Analiz Ajanı", icon: Banknote },
-      { name: "Pazar Araştırma Ajanı", icon: Brain },
-      { name: "Rekabet İstihbarat Ajanı", icon: Users },
-      { name: "Risk Değerlendirme Ajanı", icon: ShieldCheck },
+      { name: "Finansal Analiz Ajanı", icon: "Banknote" },
+      { name: "Pazar Araştırma Ajanı", icon: "Brain" },
+      { name: "Rekabet İstihbarat Ajanı", icon: "Users" },
+      { name: "Risk Değerlendirme Ajanı", icon: "ShieldCheck" },
     ]
   },
   {
@@ -53,10 +53,10 @@ const agentCategories = [
     categoryIcon: "Users",
     categoryDescription: "Destek fonksiyon ajanlarımız, İK'dan BT'ye, yasal uyumluluktan dokümantasyona kadar tüm dahili süreçlerinizi kolaylaştırır.",
     agentTypes: [
-      { name: "İK ve Yetenek Ajanı", icon: Users },
-      { name: "Yasal Uyumluluk Ajanı", icon: ShieldCheck },
-      { name: "Dokümantasyon ve Bilgi Yönetimi Ajanı", icon: FileText },
-      { name: "BT Destek Ajanı", icon: Settings },
+      { name: "İK ve Yetenek Ajanı", icon: "Users" },
+      { name: "Yasal Uyumluluk Ajanı", icon: "ShieldCheck" },
+      { name: "Dokümantasyon ve Bilgi Yönetimi Ajanı", icon: "FileText" },
+      { name: "BT Destek Ajanı", icon: "Settings" },
     ]
   }
 ];

@@ -7,7 +7,7 @@ import { CheckCircle } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 interface AgentType {
   name: string;
-  icon: LucideIcon;
+  icon: string; // Changed from LucideIcon to string
 }
 
 interface CaseStudy {
@@ -54,7 +54,9 @@ export default function AgentCategorySection({
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           {agentTypes.map((agent, index) => (
             <div key={index} className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              <agent.icon className="h-6 w-6 text-primary flex-shrink-0" />
+              {/* Dynamically get and render the icon */}
+              {((LucideIcons as any)[agent.icon] as LucideIcon) &&
+               ((LucideIcons as any)[agent.icon] as LucideIcon)({ className: "h-6 w-6 text-primary flex-shrink-0" })}
               <span className="text-sm font-medium text-foreground">{agent.name}</span>
             </div>
           ))}
