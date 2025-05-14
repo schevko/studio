@@ -22,13 +22,14 @@ interface AgentCategorySectionProps {
   agentTypes: AgentType[];
   caseStudy?: CaseStudy;
 }
-
+// Function to get a dynamically imported icon component for agent types
+ const GetAgentIcon = (iconName: string) => dynamic<LucideIcon>(() =>
+    import('lucide-react').then((mod) => mod[iconName as keyof typeof mod] as LucideIcon), { ssr: false }
+ );
 export default function AgentCategorySection({
   categoryTitle,
   categoryIcon, // Now a string
   categoryDescription,
-  agentTypes,
-  caseStudy,
 }: AgentCategorySectionProps) {
 
   // Dynamically import the category icon
@@ -36,11 +37,8 @@ export default function AgentCategorySection({
     import('lucide-react').then((mod) => mod[categoryIcon as keyof typeof mod] as LucideIcon), { ssr: false }
   );
   return (
-
- // Function to get a dynamically imported icon component for agent types
- const GetAgentIcon = (iconName: string) => dynamic<LucideIcon>(() =>
-    import('lucide-react').then((mod) => mod[iconName as keyof typeof mod] as LucideIcon), { ssr: false }
- );
+    agentTypes,
+    caseStudy,
     <Card className="w-full shadow-xl bg-card border border-border rounded-xl overflow-hidden">
       <CardHeader className="p-6 bg-secondary/50 border-b border-border">
         {/* Use the dynamically imported component */}
@@ -58,11 +56,8 @@ export default function AgentCategorySection({
         <h4 className="text-lg font-semibold text-foreground mb-4">Bu Kategorideki Ajan Tipleri:</h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           {agentTypes.map((agent, index) => (
-             // Dynamically import and render each agent icon
-             const AgentIcon = dynamic<LucideIcon>(() =>
-               import('lucide-react').then((mod) => mod[agent.icon as keyof typeof mod] as LucideIcon), { ssr: false }
-             );
             <div key={index} className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
+              {/* Dynamically get and render each agent icon */}
               <AgentIcon className="h-6 w-6 text-primary flex-shrink-0" />
               <span className="text-sm font-medium text-foreground">{agent.name}</span>
             </div>
