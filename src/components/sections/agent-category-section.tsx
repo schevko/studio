@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import dynamic from 'next/dynamic';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle } from 'lucide-react';
-import * as LucideIcons from 'lucide-react';
 interface AgentType {
   name: string;
   icon: string; // Changed from LucideIcon to string
@@ -32,9 +31,10 @@ export default function AgentCategorySection({
   caseStudy,
 }: AgentCategorySectionProps) {
 
-  // Get the icon component from the string name
-  const CategoryIcon = (LucideIcons as any)[categoryIcon] as LucideIcon;
-
+  // Dynamically import the category icon
+  const CategoryIcon = dynamic<LucideIcon>(() =>
+    import('lucide-react').then((mod) => mod[categoryIcon as keyof typeof mod] as LucideIcon), { ssr: false }
+  );
   return (
     <Card className="w-full shadow-xl bg-card border border-border rounded-xl overflow-hidden">
       <CardHeader className="p-6 bg-secondary/50 border-b border-border">
@@ -53,10 +53,12 @@ export default function AgentCategorySection({
         <h4 className="text-lg font-semibold text-foreground mb-4">Bu Kategorideki Ajan Tipleri:</h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           {agentTypes.map((agent, index) => (
+             // Dynamically import and render each agent icon
+             const AgentIcon = dynamic<LucideIcon>(() =>
+               import('lucide-react').then((mod) => mod[agent.icon as keyof typeof mod] as LucideIcon), { ssr: false }
+             );
             <div key={index} className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow">
-              {/* Dynamically get and render the icon */}
-              {((LucideIcons as any)[agent.icon] as LucideIcon) &&
-               ((LucideIcons as any)[agent.icon] as LucideIcon)({ className: "h-6 w-6 text-primary flex-shrink-0" })}
+              <AgentIcon className="h-6 w-6 text-primary flex-shrink-0" />
               <span className="text-sm font-medium text-foreground">{agent.name}</span>
             </div>
           ))}
