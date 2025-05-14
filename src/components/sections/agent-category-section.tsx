@@ -25,7 +25,7 @@ interface AgentCategorySectionProps {
 // Function to get a dynamically imported icon component for agent types
 const GetAgentIcon = (iconName: string) => dynamic<LucideIcon>(() =>
  import('lucide-react').then((mod) => mod[iconName as keyof typeof mod] as LucideIcon), { ssr: false });
-export default function AgentCategorySection({\n
+export default function AgentCategorySection({
   categoryTitle,
   categoryIcon, // Now a string
   categoryDescription,
