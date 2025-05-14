@@ -36,6 +36,11 @@ export default function AgentCategorySection({
     import('lucide-react').then((mod) => mod[categoryIcon as keyof typeof mod] as LucideIcon), { ssr: false }
   );
   return (
+
+ // Function to get a dynamically imported icon component for agent types
+ const GetAgentIcon = (iconName: string) => dynamic<LucideIcon>(() =>
+    import('lucide-react').then((mod) => mod[iconName as keyof typeof mod] as LucideIcon), { ssr: false }
+ );
     <Card className="w-full shadow-xl bg-card border border-border rounded-xl overflow-hidden">
       <CardHeader className="p-6 bg-secondary/50 border-b border-border">
         {/* Use the dynamically imported component */}
