@@ -7,7 +7,7 @@ import Link from 'next/link';
 const agentCategories = [
   {
     categoryTitle: "Müşteri Deneyimi Ajanları",
-    categoryIcon: MessageSquare,
+    categoryIcon: "MessageSquare",
     categoryDescription: "Müşterilerinizle etkileşiminizi yeniden tanımlayın. Müşteri deneyimi ajanlarımız, 7/24 kesintisiz destek sunarak müşteri memnuniyetini en üst seviyeye taşır.",
     agentTypes: [
       { name: "24/7 Müşteri Destek Ajanı", icon: HelpCircle },
@@ -28,7 +28,7 @@ const agentCategories = [
   },
   {
     categoryTitle: "Operasyonel Verimlilik Ajanları",
-    categoryIcon: Zap,
+    categoryIcon: "Zap",
     categoryDescription: "Operasyonel ajanlarımız, tekrarlayan görevleri otomatikleştirerek ve süreçlerinizi optimize ederek işletmenizin daha hızlı, daha akıllı ve daha verimli çalışmasını sağlar.",
     agentTypes: [
       { name: "Tedarik Zinciri Optimizasyon Ajanı", icon: Truck },
@@ -39,7 +39,7 @@ const agentCategories = [
   },
   {
     categoryTitle: "Stratejik Analiz Ajanları",
-    categoryIcon: BarChart3,
+    categoryIcon: "BarChart3",
     categoryDescription: "Stratejik analiz ajanlarımızla, büyük veri setlerini hızla işleyerek pazar eğilimlerini, rekabet koşullarını ve finansal performansınızı derinlemesine anlayın.",
     agentTypes: [
       { name: "Finansal Analiz Ajanı", icon: Banknote },
@@ -50,7 +50,7 @@ const agentCategories = [
   },
   {
     categoryTitle: "Destek Fonksiyon Ajanları",
-    categoryIcon: Users,
+    categoryIcon: "Users",
     categoryDescription: "Destek fonksiyon ajanlarımız, İK'dan BT'ye, yasal uyumluluktan dokümantasyona kadar tüm dahili süreçlerinizi kolaylaştırır.",
     agentTypes: [
       { name: "İK ve Yetenek Ajanı", icon: Users },

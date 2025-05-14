@@ -1,9 +1,10 @@
 'use client';
 import type { LucideIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import dynamic from 'next/dynamic';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle } from 'lucide-react';
-
+import * as LucideIcons from 'lucide-react';
 interface AgentType {
   name: string;
   icon: LucideIcon;
@@ -17,7 +18,7 @@ interface CaseStudy {
 
 interface AgentCategorySectionProps {
   categoryTitle: string;
-  categoryIcon: LucideIcon;
+  categoryIcon: string; // Changed from LucideIcon to string
   categoryDescription: string;
   agentTypes: AgentType[];
   caseStudy?: CaseStudy;
@@ -25,14 +26,19 @@ interface AgentCategorySectionProps {
 
 export default function AgentCategorySection({
   categoryTitle,
-  categoryIcon: CategoryIcon,
+  categoryIcon, // Now a string
   categoryDescription,
   agentTypes,
   caseStudy,
 }: AgentCategorySectionProps) {
+
+  // Get the icon component from the string name
+  const CategoryIcon = (LucideIcons as any)[categoryIcon] as LucideIcon;
+
   return (
     <Card className="w-full shadow-xl bg-card border border-border rounded-xl overflow-hidden">
       <CardHeader className="p-6 bg-secondary/50 border-b border-border">
+        {/* Use the dynamically imported component */}
         <div className="flex items-center gap-4">
           <div className="p-3 bg-primary/10 rounded-lg">
             <CategoryIcon className="h-8 w-8 text-primary" />
