@@ -8,7 +8,7 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit/zod'; // Correct import for Zod from Genkit
+import { z } from 'genkit'; // Correct import for Zod from Genkit
 
 const ChatAssistantInputSchema = z.object({
   message: z.string().describe("The user's message to the assistant."),
