@@ -20,7 +20,7 @@ export default function AdvisorCard({ name, role, imageUrl, expertise }: Advisor
             alt={name}
             layout="fill"
             objectFit="cover"
-             data-ai-hint="danışman portre"
+            data-ai-hint="danışman portre"
           />
         </div>
         <CardTitle className="text-md font-semibold text-foreground">{name}</CardTitle>

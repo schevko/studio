@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import ChatAssistant from '@/components/chat/chat-assistant';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">{/* Language set to Turkish */}
+    <html lang="tr">
       <body className={`${inter.variable} ${manrope.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
         <div className="flex flex-col min-h-screen page-fade-in">
           <Header />
@@ -38,6 +39,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <ChatAssistant />
         <Toaster />
       </body>
     </html>
