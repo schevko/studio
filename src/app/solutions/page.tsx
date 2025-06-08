@@ -35,6 +35,18 @@ const agentCategories = [
       { name: "Envanter Yönetim Ajanı", icon: "Factory" },
       { name: "Kalite Kontrol Ajanı", icon: "ShieldCheck" },
       { name: "İş Akışı Otomasyon Ajanı", icon: "Settings" },
+    ],
+    caseStudy: {}
+  },
+  {
+    categoryTitle: "Stratejik Analiz Ajanları",
+    categoryIcon: "BarChart3",
+    categoryDescription: "Stratejik analiz ajanlarımızla, büyük veri setlerini hızla işleyerek pazar eğilimlerini, rekabet koşullarını ve finansal performansınızı derinlemesine anlayın.",
+    agentTypes: [
+      { name: "Finansal Analiz Ajanı", icon: "Banknote" },
+      { name: "Pazar Araştırma Ajanı", icon: "Brain" },
+      { name: "Rekabet İstihbarat Ajanı", icon: "Users" },
+      { name: "Risk Değerlendirme Ajanı", icon: "ShieldCheck" },
     ]
   },
   {
