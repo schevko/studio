@@ -1,6 +1,7 @@
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
 import AgentCategorySection from '@/components/sections/agent-category-section';
 import { Button } from '@/components/ui/button';
+import dynamic from 'next/dynamic';
 import { MessageSquare, Zap, BarChart3, Users, Brain, ShoppingBag, Banknote, Stethoscope, Truck, Factory, Settings, FileText, ShieldCheck, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 
@@ -73,6 +74,9 @@ const agentCategories = [
   }
 ];
 
+// AgentCategorySection bileşenini dinamik olarak yükle
+const DynamicAgentCategorySection = dynamic(() => import('@/components/sections/agent-category-section'), { ssr: false });
+
 export default function SolutionsPage() {
   return (
     <div className="section-padding bg-gradient-to-b from-background to-secondary/30">
@@ -87,7 +91,8 @@ export default function SolutionsPage() {
         <div className="space-y-12 md:space-y-16">
           {agentCategories.map((category, index) => (
             <ScrollAnimationWrapper key={index} style={{animationDelay: `${index * 0.1}s`}}>
-              <AgentCategorySection {...category} />
+              {/* Dinamik olarak yüklenen bileşeni kullan */}
+              <DynamicAgentCategorySection {...category} />
             </ScrollAnimationWrapper>
           ))}
         </div>
