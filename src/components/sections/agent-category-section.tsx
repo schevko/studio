@@ -29,6 +29,7 @@ export default function AgentCategorySection({
   categoryTitle,
   categoryIcon, // Now a string
   categoryDescription,
+  agentTypes,
 }: AgentCategorySectionProps) {
 
   // Dynamically import the category icon
