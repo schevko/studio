@@ -1,10 +1,9 @@
 import ScrollAnimationWrapper from '@/components/scroll-animation-wrapper';
-import AgentCategorySection from '@/components/sections/agent-category-section';
+import SolutionsRenderer from '@/components/solutions-renderer'; // Import the new client component
 import { Button } from '@/components/ui/button';
-import dynamic from 'next/dynamic';
-import { MessageSquare, Zap, BarChart3, Users, Brain, ShoppingBag, Banknote, Stethoscope, Truck, Factory, Settings, FileText, ShieldCheck, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 
+// The data remains in the Server Component
 const agentCategories = [
   {
     categoryTitle: "Müşteri Deneyimi Ajanları",
@@ -48,18 +47,8 @@ const agentCategories = [
       { name: "Pazar Araştırma Ajanı", icon: "Brain" },
       { name: "Rekabet İstihbarat Ajanı", icon: "Users" },
       { name: "Risk Değerlendirme Ajanı", icon: "ShieldCheck" },
-    ]
-  },
-  {
-    categoryTitle: "Stratejik Analiz Ajanları",
-    categoryIcon: "BarChart3",
-    categoryDescription: "Stratejik analiz ajanlarımızla, büyük veri setlerini hızla işleyerek pazar eğilimlerini, rekabet koşullarını ve finansal performansınızı derinlemesine anlayın.",
-    agentTypes: [
-      { name: "Finansal Analiz Ajanı", icon: "Banknote" },
-      { name: "Pazar Araştırma Ajanı", icon: "Brain" },
-      { name: "Rekabet İstihbarat Ajanı", icon: "Users" },
-      { name: "Risk Değerlendirme Ajanı", icon: "ShieldCheck" },
-    ]
+    ],
+    caseStudy: {}
   },
   {
     categoryTitle: "Destek Fonksiyon Ajanları",
@@ -70,12 +59,10 @@ const agentCategories = [
       { name: "Yasal Uyumluluk Ajanı", icon: "ShieldCheck" },
       { name: "Dokümantasyon ve Bilgi Yönetimi Ajanı", icon: "FileText" },
       { name: "BT Destek Ajanı", icon: "Settings" },
-    ]
+    ],
+    caseStudy: {}
   }
 ];
-
-// AgentCategorySection bileşenini dinamik olarak yükle
-const DynamicAgentCategorySection = dynamic(() => import('@/components/sections/agent-category-section'), { ssr: false });
 
 export default function SolutionsPage() {
   return (
@@ -88,14 +75,8 @@ export default function SolutionsPage() {
           </p>
         </ScrollAnimationWrapper>
 
-        <div className="space-y-12 md:space-y-16">
-          {agentCategories.map((category, index) => (
-            <ScrollAnimationWrapper key={index} style={{animationDelay: `${index * 0.1}s`}}>
-              {/* Dinamik olarak yüklenen bileşeni kullan */}
-              <DynamicAgentCategorySection {...category} />
-            </ScrollAnimationWrapper>
-          ))}
-        </div>
+        {/* Use the new client component to render the dynamic sections */}
+        <SolutionsRenderer agentCategories={agentCategories} />
 
         <ScrollAnimationWrapper className="mt-16 text-center">
           <h3 className="text-2xl font-semibold text-foreground mb-4">Size Özel Çözüm İçin Bize Ulaşın</h3>
