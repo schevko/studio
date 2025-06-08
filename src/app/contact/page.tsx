@@ -42,7 +42,7 @@ export default function ContactPage() {
                   <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground">Telefon Numaramız</h3>
-                    <a href="tel:+902121234567" className="hover:text-primary transition-colors">+90 (212) 123 45 67</a>
+                    <a href="tel:+908503072707" className="hover:text-primary transition-colors">+90 850 307 2707</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-foreground">Ofis Adresimiz</h3>
-                    <p>Assisto Teknoloji A.Ş., Teknopark İstanbul, No:1 Kat:2, Pendik, İstanbul</p>
+                    <p>Synaptix Bilişim Teknolojileri A.Ş., OMÜ Teknopark, Samsun</p>
                     <p className="text-sm">(Ziyaretler randevu ile yapılmaktadır)</p>
                   </div>
                 </div>
