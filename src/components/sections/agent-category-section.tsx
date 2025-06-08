@@ -65,25 +65,35 @@ export default function AgentCategorySection({
         {caseStudy && (
           <Accordion type="single" collapsible className="w-full mt-6">
             <AccordionItem value="case-study" className="border border-border rounded-lg bg-background">
-              <AccordionTrigger className="px-4 py-3 font-semibold text-primary hover:no-underline">
-                {caseStudy.title}
-              </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4">
-                <p className="text-sm text-muted-foreground mb-3"><strong>Özellikler:</strong></p>
-                <ul className="space-y-1.5 mb-4 text-sm text-muted-foreground">
-                  {caseStudy.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <CheckCircle className="mr-2 mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm text-muted-foreground italic"><strong>Uygulama Örneği:</strong> {caseStudy.example}</p>
-              </AccordionContent>
+              {caseStudy.title && (
+                <AccordionTrigger className="px-4 py-3 font-semibold text-primary hover:no-underline">
+                  {caseStudy.title}
+                </AccordionTrigger>
+              )}
+              {(caseStudy.features || caseStudy.example) && (
+                <AccordionContent className="px-4 pb-4">
+                  {caseStudy.features && caseStudy.features.length > 0 && (
+                    <>
+                      <p className="text-sm text-muted-foreground mb-3"><strong>Özellikler:</strong></p>
+                      <ul className="space-y-1.5 mb-4 text-sm text-muted-foreground">
+                        {caseStudy.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="mr-2 mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                  {caseStudy.example && (
+                    <p className="text-sm text-muted-foreground italic"><strong>Uygulama Örneği:</strong> {caseStudy.example}</p>
+                  )}
+                </AccordionContent>
+              )}
             </AccordionItem>
           </Accordion>
         )}
-      </CardContent>
+ </CardContent>
     </Card>
   );
 }
