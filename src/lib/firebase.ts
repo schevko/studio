@@ -1,8 +1,8 @@
 // src/lib/firebase.ts
 import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
 import { getFirestore, type Firestore } from 'firebase/firestore';
-// import { getAuth, type Auth } from 'firebase/auth';
-// import { getStorage, type FirebaseStorage } from 'firebase/storage';
+import { getAuth, type Auth } from 'firebase/auth';
+import { getStorage, type FirebaseStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -23,7 +23,7 @@ if (!getApps().length) {
 }
 
 const db: Firestore = getFirestore(app);
-// const auth: Auth = getAuth(app); // Uncomment if auth is needed
-// const storage: FirebaseStorage = getStorage(app); // Uncomment if storage is needed
+const auth: Auth = getAuth(app); // Uncomment if auth is needed
+const storage: FirebaseStorage = getStorage(app); // Uncomment if storage is needed
 
-export { app, db /*, auth, storage */ };
+export { app, db, auth, storage };
